@@ -1,0 +1,534 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="多校舎塾マネジメントBASE | 教室長任せから抜け出す、中小チェーン塾専用の経営基盤">
+
+  <!-- ─────────────────────────────────────────
+       SECTION 01 — HERO
+       ───────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__bg" style={`background-image: url('${base}images/hero-bg.jpg');`}></div>
+    <div class="hero__tint"></div>
+    <div class="hero__inner">
+      <div class="rv">
+        <p class="hero__eyebrow">For multi-campus juku owners</p>
+        <h1 class="hero__title">
+          校舎が増えるほど、<br />
+          <span class="em">「教室長任せ」</span>の限界が<br />
+          見えてきた塾オーナーへ。
+        </h1>
+      </div>
+      <p class="hero__lead rv rv-d1">
+        時間割・出欠・成績・保護者対応・校舎別の数字を1つにまとめ、退塾兆候を早く見つけ、保護者対応のムラをなくし、紹介が生まれやすい塾経営に変える。
+      </p>
+      <p class="hero__sub rv rv-d2">
+        中小チェーン塾専用の多校舎経営基盤「<strong>多校舎塾マネジメントBASE</strong>」。Excel・LINE・紙・専用SaaSが校舎ごとにバラバラな状態から、全校舎の状況を1画面で見える化し、先回りして手を打てる経営体制へ。
+      </p>
+      <div class="hero__cta rv rv-d3">
+        <a href="#cta" class="cta-btn cta-btn--lg">まずは無料相談する</a>
+        <span class="hero__note">初回3社限定 / 共創モニター募集中</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 02 — 問題提起
+       ───────────────────────────────────────── -->
+  <section class="sec sec--warm">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">02</span>The problem</p>
+        <h2 class="sec-heading">
+          校舎が増えるほど、塾経営は<br /><span class="em">「見えない部分」</span>から崩れます。
+        </h2>
+      </div>
+      <p class="sec-lead rv rv-d1">
+        1校舎のときは、塾長やオーナーが現場を見れば何とかなります。しかし、2校舎、3校舎と増えると、少しずつ状況が変わります。
+      </p>
+      <ul class="symptom-list rv rv-d2">
+        <li>校舎ごとに時間割の作り方が違う</li>
+        <li>出欠や振替の管理方法が校舎ごとに違う</li>
+        <li>成績管理の粒度が教室長によってバラバラ</li>
+        <li>保護者連絡の頻度・温度感が校舎で揃わない</li>
+        <li>退塾しそうな生徒への気づきが遅れる</li>
+        <li>紹介が生まれる校舎と生まれない校舎に差が出る</li>
+        <li>月次の数字を集めるだけで毎回時間がかかる</li>
+        <li>結局、教室長に聞かないと現場の状態がわからない</li>
+      </ul>
+      <p class="sec-body rv rv-d3" style="margin-top:1.8rem;">
+        最初は小さなズレです。しかし、このズレを放置すると、校舎が増えるほど<strong>経営の中身が見えなくなっていきます</strong>。
+      </p>
+      <div class="side-image side-image--reverse rv rv-d3" style="margin-top:3rem;">
+        <div class="side-image__visual">
+          <img src={`${base}images/empathy-scattered.jpg`} alt="校舎ごとにバラバラに集まった月次資料・LINEプリント・時間割・手書きメモ・付箋（欠席3回目／面談未対応）" loading="lazy" />
+          <p class="side-image__caption">月末の本部執務机 — 校舎ごとに情報がバラバラに集まる現場</p>
+        </div>
+        <div>
+          <p class="sec-body">
+            「校舎が増えても、塾長やオーナーが集計の最終バッターになる」状態は、最初のうちは気合いで乗り切れます。しかし2校舎目・3校舎目と増えるごとに、毎月の集計作業は倍々で増えていきます。情報を集めることが業務になっていく。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 03 — オーナーの痛み
+       ───────────────────────────────────────── -->
+  <section class="sec sec--dark">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">03</span>The owner's pain</p>
+        <h2 class="sec-heading">
+          オーナーが本当に苦しいのは、<br /><span class="em">「頑張っているのに全体が見えないこと」</span>です。
+        </h2>
+        <div class="rule--short"></div>
+        <p class="sec-lead">
+          多校舎経営で一番苦しいのは、現場がサボっていることではありません。むしろ、現場は頑張っています。
+        </p>
+      </div>
+      <p class="sec-body rv rv-d1">
+        教室長も、講師も、日々の授業や保護者対応を回している。それでもオーナーから見ると、どの校舎で何が詰まっているのか、どの生徒が退塾しそうなのか、どの教室長の対応が遅れているのか、どの校舎で紹介が生まれているのかが<strong style="color:var(--c-amber-bright)">見えない</strong>。問題は現場が悪いことではなく、情報が分散しすぎて、オーナーが判断できる形で上がってきていないことです。
+      </p>
+      <div class="side-image rv rv-d2" style="margin-top:3rem;">
+        <div class="side-image__visual">
+          <img src={`${base}images/enemy-silo.jpg`} alt="教室Aと教室Bの様子｜現場はそれぞれの校舎で頑張っている。違うのは、現場の情報がオーナーに届く形" loading="lazy" />
+          <p class="side-image__caption">教室A と 教室B — 現場はそれぞれ頑張っている。違うのは、情報の上がり方</p>
+        </div>
+        <div>
+          <p class="sec-body" style="color:var(--c-text-on-dark);">
+            現場の情報がオーナーまで「判断できる形」で上がってこないと、どちらの校舎で何が起きているかは推測でしか語れません。現場批判の話ではなく、構造の話です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 04 — 解決策提示
+       ───────────────────────────────────────── -->
+  <section class="sec">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">04</span>The solution</p>
+        <h2 class="sec-heading">
+          必要なのは、<span class="em">ツールを増やすこと</span>ではありません。
+        </h2>
+        <div class="rule--short"></div>
+        <p class="sec-lead">
+          必要なのは、校舎ごとに分散している情報を1つにつなぎ、オーナーがすぐに判断できる<strong>経営基盤</strong>を作ることです。
+        </p>
+      </div>
+      <p class="sec-body rv rv-d1">
+        時間割、出欠、成績、振替、保護者対応、退塾兆候、紹介状況、校舎別の数字。これらがバラバラに存在している限り、オーナーは毎回情報を集めるところから始めなければいけません。逆に1つにつながれば、退塾兆候に早く気づき、保護者に具体的な報告ができ、教室長ごとの対応差を減らせます。
+      </p>
+
+      <div class="side-image rv rv-d2" style="margin-top:3rem;">
+        <div class="side-image__visual">
+          <img src={`${base}images/solution-flow.jpg`} alt="校舎ごとに散らばっていた紙資料・付箋がラップトップの統合経営基盤に収束する流れ。A校舎・B校舎・C校舎の在籍・売上・出欠が1画面で見える状態" loading="lazy" />
+          <p class="side-image__caption">分散 → 統合 — 校舎ごとの情報が1画面に集まる</p>
+        </div>
+        <div>
+          <p class="sec-body">
+            必要なのは、「校舎ごとに頑張る運用」を否定することではありません。校舎ごとの強みは残しながら、データだけは1つの形に揃える。それだけで、判断のスピードは劇的に変わります。
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:2.4rem;" class="rv rv-d3">
+        <a href="#cta" class="cta-btn">課題を無料で整理する</a>
+        <p class="cta-note">今の運営のままで良いかも確認できます</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 05 — 3つの構築要素
+       ───────────────────────────────────────── -->
+  <section class="sec sec--alt">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">05</span>The three pillars</p>
+        <h2 class="sec-heading">
+          この<span class="em">3つ</span>をまとめて構築するのが、<br />多校舎塾マネジメントBASEです。
+        </h2>
+        <p class="sec-lead">
+          単なるNotionテンプレートではありません。単なる時間割アプリでもありません。教室長任せの属人運営から抜け出すための、塾専用の経営基盤です。
+        </p>
+      </div>
+
+      <div class="pillar pillar--with-image rv rv-d1">
+        <div class="pillar__num">01</div>
+        <div>
+          <h3 class="pillar__title">経営ダッシュボード</h3>
+          <p class="pillar__body">
+            全校舎の売上・新規・退塾・出欠・講師稼働・保護者対応状況を1画面で確認できる本部画面。校舎ごとに数字を集めるところから始める必要はもうありません。
+          </p>
+          <p class="pillar__outcome">
+            月次集計のための情報収集ではなく、次にどこへ手を打つべきかを判断できる状態。
+          </p>
+        </div>
+        <div class="pillar__image">
+          <img src={`${base}images/dashboard.jpg`} alt="多校舎統合経営ダッシュボード｜A校舎・B校舎・C校舎の売上比較・在籍推移・退会率・新規率を1画面で確認" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="pillar pillar--with-image rv rv-d2">
+        <div class="pillar__num">02</div>
+        <div>
+          <h3 class="pillar__title">時間割・出欠・成績の一元管理アプリ</h3>
+          <p class="pillar__body">
+            時間割、出欠、成績、振替、講師稼働を共通ルールで管理。校舎ごとに違うやり方を尊重しつつ、データの形は揃える設計です。
+          </p>
+          <p class="pillar__outcome">
+            教室長ごとのやり方に依存せず、誰が見ても同じ基準で運営できる状態。
+          </p>
+        </div>
+        <div class="pillar__image">
+          <img src={`${base}images/app-screenshots/01-schedule.png`} alt="時間割作成アプリの実画面｜講師×時間帯のグリッドで授業をD&D配置、リアルタイム制約判定" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="pillar pillar--with-image rv rv-d3">
+        <div class="pillar__num">03</div>
+        <div>
+          <h3 class="pillar__title">保護者コミュニケーション基盤</h3>
+          <p class="pillar__body">
+            出欠・成績・学習量のデータをもとに、保護者レポートや退塾兆候の確認を仕組み化。校舎ごとに頑張る対応ではなく、塾全体の構造として保護者と向き合う土台を作ります。
+          </p>
+          <p class="pillar__outcome">
+            保護者が「ちゃんと見てくれている」と感じやすい状態を、構造として作れる。
+          </p>
+        </div>
+        <div class="pillar__image">
+          <img src={`${base}images/parent-report.jpg`} alt="保護者向け月次学習レポート｜出席率・科目別正答率・講師コメントを自動生成" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="screens-gallery rv rv-d4">
+        <p class="screens-gallery__title">Real screens — 実際のアプリ画面</p>
+        <p class="screens-gallery__sub">時間割管理アプリ「juku-timetable」の運用画面より。DEMO環境のスクリーンショット。</p>
+        <div class="screens-gallery__grid">
+          <div class="screen-card">
+            <img src={`${base}images/app-screenshots/02-templates.png`} alt="時間割テンプレート画面｜曜日×時間帯ベースの定期パターン設計、自動配置モーダル" loading="lazy" />
+            <p class="screen-card__label"><span class="accent">02</span>時間割テンプレート / 自動配置</p>
+          </div>
+          <div class="screen-card">
+            <img src={`${base}images/app-screenshots/04-instructors.png`} alt="講師情報画面｜教室長・正社員・契約社員・アルバイトのステータス別表示、週次・月次の担当コマ可視化" loading="lazy" />
+            <p class="screen-card__label"><span class="accent">04</span>講師情報 / 担当コマ可視化</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 06 — 紹介が増える因果
+       ───────────────────────────────────────── -->
+  <section class="sec">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">06</span>The causal chain</p>
+        <h2 class="sec-heading">
+          管理システムで、なぜ<br /><span class="em">紹介が増えやすくなる</span>のか。
+        </h2>
+        <p class="sec-lead">
+          このサービスは、導入した瞬間に自動で口コミが増える魔法のツールではありません。作るのは、紹介が生まれやすくなる土台です。
+        </p>
+      </div>
+
+      <div class="flow rv rv-d1">
+        <div class="flow__step"><div class="flow__num">01</div><div class="flow__text">校舎ごとに蓄積されてこなかったデータが、共通の形で貯まり始める</div></div>
+        <div class="flow__step"><div class="flow__num">02</div><div class="flow__text">生徒一人ひとりの変化（成績・出欠・学習量）に早く気づける</div></div>
+        <div class="flow__step"><div class="flow__num">03</div><div class="flow__text">保護者への報告内容が「頑張ってます」から具体的な事実ベースへ</div></div>
+        <div class="flow__step"><div class="flow__num">04</div><div class="flow__text">保護者が「ちゃんと見てくれている」と感じる</div></div>
+        <div class="flow__step"><div class="flow__num">05</div><div class="flow__text">満足度が上がり、退塾を考えるタイミングを掴めるようになる</div></div>
+        <div class="flow__step"><div class="flow__num">06</div><div class="flow__text">退塾が減り、在籍期間が延びる</div></div>
+        <div class="flow__step"><div class="flow__num">07</div><div class="flow__text">紹介・口コミが生まれやすい状態へ。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 07 — なぜ自分が作るのか
+       ───────────────────────────────────────── -->
+  <section class="sec sec--warm">
+    <div class="container">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">07</span>Why me</p>
+        <h2 class="sec-heading" style="max-width:880px;">
+          塾を知らない開発会社でもなく、<br />実装できない<span class="em">塾コンサル</span>でもありません。
+        </h2>
+      </div>
+      <div class="profile rv rv-d1">
+        <div class="profile__visual">
+          <img src={`${base}images/profile-desk.jpg`} alt="開発者の作業デスク｜Notion基盤の生徒タスク管理画面・数学指導ノート・付箋メモ（再現性のある型／マインドから）" loading="lazy" />
+          <div class="profile__overlay">Uehara Chika — Developer · Tutor</div>
+        </div>
+        <div>
+          <p class="sec-lead">
+            現役で塾の現場に立ちながら、Notion設計とアプリ開発まで一貫して行っています。
+          </p>
+          <p class="sec-body" style="margin-bottom:1.4rem;">
+            欠席が続いた生徒にいつ連絡すべきか。成績が落ち始めた生徒をどのデータから拾うべきか。季節講習の時間割作成でどこに負荷がかかるのか。こうした現場の違和感を、Notionのデータベース設計や時間割アプリの構造に落とし込める立ち位置が強みです。
+          </p>
+          <p class="sec-body">
+            完成品を一方的に売るのではなく、塾ごとの運用ルールを吸収しながら一緒に作る共創型。実績で売るのではなく、初期パートナーとして現場ルールを反映できる位置取りで、初回3社限定の共創モニターを募集しています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 08 — 共創モニターオファー
+       ───────────────────────────────────────── -->
+  <section class="sec sec--deep" id="offer">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">08</span>Co-creation offer</p>
+        <h2 class="sec-heading">
+          初回<span class="em">3社限定</span>で、<br />共創モニターを募集します。
+        </h2>
+        <p class="sec-lead">
+          完成品を一方的に売るのではなく、実際の塾運営に合わせて一緒に作り上げるための初回限定オファーです。塾固有のルールが反映できるのは、この時期だけです。
+        </p>
+      </div>
+
+      <div class="offer rv rv-d1">
+        <p class="offer__label">Beta partner — limited to 3 schools</p>
+        <h3 class="offer__heading">
+          3ヶ月で最小構成から立ち上げ、<br />現場に合わせて育てます。
+        </h3>
+
+        <div class="offer__price">
+          <div class="offer__price-row">
+            <span class="offer__price-label">初期構築費</span>
+            <span class="offer__price-value">29.8<span class="unit">万円</span></span>
+          </div>
+          <div class="offer__price-row">
+            <span class="offer__price-label">月額運用費</span>
+            <span class="offer__price-value">3.0<span class="unit">万円 / 月</span></span>
+          </div>
+          <div class="offer__price-row">
+            <span class="offer__price-label">最低契約期間</span>
+            <span class="offer__price-value">3<span class="unit">ヶ月</span></span>
+          </div>
+          <div class="offer__price-row">
+            <span class="offer__price-label">合計</span>
+            <span class="offer__price-value"><span class="total">38.8万円</span><span class="unit">/ 3ヶ月</span></span>
+          </div>
+        </div>
+        <p class="offer__small">
+          正規提供時：初期 79.8万円〜98万円 / 月額 5万円〜10万円 / 最低契約6ヶ月を予定。
+        </p>
+
+        <div class="offer__include">
+          <div class="offer__include-block">
+            <p class="offer__include-title">Included — 含まれる内容</p>
+            <ul class="offer__include-list">
+              <li>現状業務ヒアリング</li>
+              <li>校舎別の管理フロー整理</li>
+              <li>時間割・出欠・成績管理の基盤構築</li>
+              <li>経営ダッシュボード構築</li>
+              <li>保護者レポート設計</li>
+              <li>退塾兆候を見つけるための管理設計</li>
+              <li>月1回の改善ミーティング</li>
+              <li>Notion基盤の改善・運用定着サポート</li>
+            </ul>
+          </div>
+          <div class="offer__include-block">
+            <p class="offer__include-title">Conditions — 参加条件</p>
+            <ul class="offer__include-list">
+              <li>導入事例（匿名可）への協力</li>
+              <li>改善フィードバックへの協力</li>
+              <li>導入前後の業務時間の共有</li>
+              <li>保護者対応数の共有</li>
+              <li>紹介数・退塾率など可能な範囲での数値共有</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:1rem;">
+          <a href="#cta" class="cta-btn cta-btn--lg">共創モニターを相談する</a>
+          <p class="cta-note">3社限定 / 参加条件は相談時に確認できます</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 09 — 向き不向き・導入ロードマップ
+       ───────────────────────────────────────── -->
+  <section class="sec">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">09</span>Fit check</p>
+        <h2 class="sec-heading">
+          すべての塾に向いている<br />サービスではありません。
+        </h2>
+        <p class="sec-lead">
+          合わない塾に無理に導入しても成果につながりにくいため、向いている塾と向いていない塾を明確にします。
+        </p>
+      </div>
+
+      <div class="compare-2col rv rv-d1">
+        <div class="compare-2col__col compare-2col__col--fit">
+          <p class="compare-2col__label">向いている塾</p>
+          <ul class="compare-2col__list">
+            <li>2校舎以上を運営している</li>
+            <li>各校舎に教室長を置いている</li>
+            <li>社長やオーナーが全校舎の状態を見切れていない</li>
+            <li>校舎ごとに管理方法や保護者対応に差がある</li>
+            <li>月次集計や季節講習の時間割作成に時間がかかっている</li>
+            <li>退塾率や紹介数に課題を感じている</li>
+            <li>既存SaaSが高い、または自塾のルールに合わないと感じている</li>
+            <li>今後さらに校舎展開を考えている</li>
+          </ul>
+        </div>
+        <div class="compare-2col__col compare-2col__col--unfit">
+          <p class="compare-2col__label">向いていない塾</p>
+          <ul class="compare-2col__list">
+            <li>1校舎のみで、塾長がすべて自分で管理できている</li>
+            <li>保護者対応や退塾に課題感がない</li>
+            <li>現場入力や改善フィードバックに協力する意思がない</li>
+            <li>とにかく安いツールだけを探している</li>
+            <li>今のやり方を一切変えたくない</li>
+            <li>ITや仕組み化に強い拒否感がある</li>
+            <li>導入後の数値共有や事例化にまったく協力できない</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 10 — 申し込み後の流れ
+       ───────────────────────────────────────── -->
+  <section class="sec sec--warm">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">10</span>Roadmap</p>
+        <h2 class="sec-heading">
+          申し込み後は、まず<span class="em">無料相談で課題を整理</span>します。
+        </h2>
+        <p class="sec-lead">
+          いきなり導入を決める必要はありません。現在の運営状況を確認し、共創モニターに合うかを判断します。3ヶ月で使える最小構成から始めるので、いきなり全校舎に複雑なシステムを入れる進め方ではありません。
+        </p>
+      </div>
+      <ol class="roadmap rv rv-d1">
+        <li>無料相談 — 現状ヒアリング</li>
+        <li>契約・初期費用のお支払い</li>
+        <li>現状資料の共有（Excel・スプレッド・SaaS等）</li>
+        <li>業務フロー整理（校舎別の運用差を見える化）</li>
+        <li>設計・初期構築（最小構成）</li>
+        <li>テスト運用・改善</li>
+        <li>本運用開始</li>
+        <li>月1回の改善ミーティング</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 11 — FAQ（常時表示 Q+A）
+       ───────────────────────────────────────── -->
+  <section class="sec sec--alt">
+    <div class="container--narrow">
+      <div class="rv">
+        <p class="eyebrow"><span class="eyebrow__num">11</span>FAQ</p>
+        <h2 class="sec-heading">よくある質問</h2>
+        <p class="sec-lead">申し込み前に出やすい不安を、先に整理しておきます。</p>
+      </div>
+
+      <div class="faq rv rv-d1">
+        <div class="faq__item">
+          <p class="faq__q">Notionに詳しくなくても大丈夫ですか？</p>
+          <p class="faq__a">現場全員にNotionを使わせる前提ではありません。教室長や講師が使う部分は、できるだけアプリ側に寄せます。オーナーや本部はNotionダッシュボードで全体を確認する役割分担にできます。Notionは裏側のデータ基盤として動きます。</p>
+        </div>
+        <div class="faq__item">
+          <p class="faq__q">今のExcelやスプレッドシートでも一応回っています。それでも必要ですか？</p>
+          <p class="faq__a">見るべきなのは「今動いているか」ではなく、「校舎が増えても教室長が変わっても、同じ品質で回り続けるか」です。校舎数が増えるほど、見えないコストが少しずつ増えていきます。</p>
+        </div>
+        <div class="faq__item">
+          <p class="faq__q">既存SaaSとの違いは何ですか？</p>
+          <p class="faq__a">既存SaaSと完全個別開発の中間に位置します。自塾の運用ルールに合わせやすく、Notionをバックエンドにすることで、解約後もデータ資産が手元に残りやすい構造です。</p>
+        </div>
+        <div class="faq__item">
+          <p class="faq__q">個人開発者に任せるのが不安です。</p>
+          <p class="faq__a">データの正本はNotion側に残します。アプリは標準的な構成（Next.js）で作るため、将来的な引き継ぎや保守も可能な形で設計します。BCP条項も契約書に明示します。</p>
+        </div>
+        <div class="faq__item">
+          <p class="faq__q">本当に紹介や口コミが増えるのですか？</p>
+          <p class="faq__a">魔法のツールではありません。「紹介が生まれやすくなる土台」を作ります。データ蓄積 → 具体的な保護者報告 → 満足度向上 → 退塾減 → 紹介増、という因果で説明できる構造です。</p>
+        </div>
+        <div class="faq__item">
+          <p class="faq__q">忙しくて導入できるか不安です。</p>
+          <p class="faq__a">忙しいからこそ仕組み化する価値があります。最初から全校舎に複雑なシステムを入れるのではなく、使える最小構成から始めて、現場の反応を見ながら拡張します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       SECTION 12 — 最終CTA（背景写真オーバーレイ）
+       ───────────────────────────────────────── -->
+  <section class="sec sec--hero-photo" id="cta">
+    <div class="sec__bg" style={`background-image: url('${base}images/cta-bg.jpg');`}></div>
+    <div class="sec__tint"></div>
+    <div class="container--narrow" style="text-align:center;">
+      <div class="rv">
+        <p class="eyebrow" style="justify-content:center;"><span class="eyebrow__num">12</span>Free consultation</p>
+        <h2 class="sec-heading" style="text-align:center;">
+          校舎が増えるほど管理が崩れ始めているなら、<br /><span class="em">一度ご相談ください。</span>
+        </h2>
+        <p class="sec-lead" style="margin-inline:auto;text-align:center;">
+          今の運営のままで問題ない場合は、無理に導入する必要はありません。校舎ごとに管理方法が違う、教室長によって保護者対応に差がある、月次集計に時間がかかる、退塾兆候に気づくのが遅い、紹介が生まれる校舎と生まれない校舎がある——こうした課題があるなら、まずは無料相談で現状を整理してください。合わないと判断したら、その旨を正直にお伝えします。
+        </p>
+      </div>
+
+      <div class="rv rv-d1" style="text-align:left;max-width:560px;margin:2.4rem auto 2.8rem;">
+        <p class="offer__include-title" style="text-align:center;">無料相談で整理する項目</p>
+        <ul class="offer__include-list">
+          <li>校舎数 / 生徒数 / 講師数の現状</li>
+          <li>現在の管理方法（Excel・LINE・紙・SaaS）</li>
+          <li>保護者対応の頻度と内容</li>
+          <li>退塾率と紹介数の現状</li>
+          <li>このサービスが合うかどうかの判定</li>
+        </ul>
+      </div>
+
+      <div class="rv rv-d2">
+        <a href="mailto:kazutoue45@gmail.com?subject=多校舎塾マネジメントBASE%20無料相談希望" class="cta-btn cta-btn--lg">まずは無料相談してみる</a>
+        <p class="cta-note" style="margin-inline:auto;">初回3社限定 / 合わない場合は正直にお伝えします</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       FOOTER
+       ───────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div>
+          <p class="footer__brand">多校舎塾マネジメントBASE</p>
+          <p class="footer__sub">中小チェーン塾専用の多校舎経営基盤</p>
+        </div>
+        <div style="text-align:right;">
+          <p class="footer__sub">運営：上原千翔（Uehara Chika）</p>
+          <p class="footer__sub">Notion × Next.js / 学習塾講師</p>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 Juku Management BASE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <a href="#cta" class="cta-btn">無料相談する（3社限定）</a>
+  </div>
+
+</Layout>
