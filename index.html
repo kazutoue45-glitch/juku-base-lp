@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0F1630; --bg-deep:#0A1024; --bg-2:#131C3C;
@@ -18,14 +18,13 @@
     --line:rgba(255,255,255,.11); --line-2:rgba(255,255,255,.17);
     --ink:#F5F7FF; --body:#C4CAE2; --muted:#929AB8; --faint:#737B9C;
     --brand:#6E78F0; --brand-2:#9A6BF0; --brand-soft:#AEB6FF;
-    --gold:#E6B968;
+    --gold:#E6B968; --beige:#E8E6DD;
     --r:16px; --r-sm:11px; --wrap:1160px;
     --font:"Inter","Noto Sans JP",sans-serif;
-    --mono:"JetBrains Mono",ui-monospace,monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;overflow-x:clip}
-  body{font-family:var(--font);color:var(--body);background:var(--bg);line-height:1.9;
+  body{font-family:var(--font);color:var(--body);background:var(--bg);line-height:1.85;
     -webkit-font-smoothing:antialiased;font-size:16px;overflow-x:clip;letter-spacing:.005em}
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
@@ -36,13 +35,17 @@
     background:var(--gold);box-shadow:0 0 10px 1px rgba(230,185,104,.8)}
   .sec-label{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--brand-soft);text-transform:uppercase}
 
-  /* section tints (色分け) */
+  /* dark / light section schemes */
   .t-base{background:var(--bg)}
   .t-deep{background:var(--bg-deep)}
-  .t-indigo{background:radial-gradient(135% 85% at 50% 0%,rgba(110,120,240,.13),transparent 58%),#101938}
-  .t-violet{background:radial-gradient(135% 85% at 50% 0%,rgba(154,107,240,.14),transparent 58%),#11132F}
-  .t-teal{background:radial-gradient(135% 85% at 50% 0%,rgba(64,150,210,.13),transparent 58%),#0E1A33}
-  .t-amber{background:radial-gradient(135% 85% at 50% 0%,rgba(230,185,104,.08),transparent 58%),#121530}
+  .s-light{
+    --panel:#FBFBF8; --panel-2:#F1F0EB; --card:#EDECE4;
+    --ink:#1B2342; --body:#4B5066; --muted:#7C808F; --faint:#9A9DAB;
+    --line:rgba(30,34,56,.12); --line-2:rgba(30,34,56,.19);
+    --brand-soft:#5A5FB8; --gold:#A98A3C;
+    background:var(--beige);color:var(--body)}
+  .s-light .note{color:#8A90A6}
+  .s-light .shot{box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 26px 54px -30px rgba(22,30,66,.45),0 0 0 1px rgba(22,30,66,.08)}
 
   /* buttons */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;
@@ -85,17 +88,8 @@
     -webkit-mask-image:radial-gradient(95% 80% at 70% 20%,#000 0%,transparent 78%);
     mask-image:radial-gradient(95% 80% at 70% 20%,#000 0%,transparent 78%)}
   .hero-deco{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-  .hero-deco svg{position:absolute;right:-3%;top:0;width:78%;height:100%;color:#9bb2ff;opacity:.78;
+  .hero-deco svg{position:absolute;right:-3%;top:0;width:78%;height:100%;color:#9bb2ff;opacity:.7;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%)}
-  .codeglyph{position:absolute;font-family:var(--mono);font-size:12.5px;color:#a9bcff;white-space:nowrap;
-    letter-spacing:.02em;font-weight:500;text-shadow:0 0 14px rgba(110,130,240,.45)}
-  .cg1{top:12%;left:5%;opacity:.16}
-  .cg2{top:66%;left:3%;opacity:.13}
-  .cg3{top:28%;right:4%;opacity:.26;color:#c6d6ff}
-  .cg4{top:80%;right:7%;opacity:.2}
-  .cg5{top:50%;right:33%;opacity:.15}
-  .cg6{top:40%;left:8%;opacity:.1}
-  @media(max-width:760px){.codeglyph{display:none}}
   .hero .wrap{position:relative;z-index:2}
   .hero-grid{display:grid;gap:40px;align-items:center}
   .hero-copy{text-align:left}
@@ -132,18 +126,16 @@
   .laptop__base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
     width:15%;height:5px;background:linear-gradient(180deg,#9097a2,#6d747f);border-radius:0 0 7px 7px}
 
-  /* screenshot frame (light shot on dark) */
+  /* screenshot frame */
   .shot{position:relative;border-radius:14px;overflow:hidden;background:#fff;
     border:1px solid rgba(255,255,255,.18);
     box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 38px 80px -30px rgba(0,0,0,.78),0 0 0 1px rgba(110,120,240,.2)}
   .shot img{display:block;width:100%;height:auto}
-  .shot--crop{aspect-ratio:16/11}
+  .shot--crop{aspect-ratio:16/10}
   .shot--crop img{width:100%;height:100%;object-fit:cover;object-position:top center}
 
   /* ---------- MARQUEE ---------- */
-  .strip{position:relative;padding:30px 0 6px}
-  .strip .cap{text-align:center;margin-bottom:24px}
-  .strip .cap .t{font-size:13px;color:var(--muted);font-weight:500}
+  .strip{position:relative;padding:34px 0 10px}
   .marquee{position:relative;width:100vw;left:50%;transform:translateX(-50%);overflow:hidden;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
@@ -158,59 +150,58 @@
   @media(min-width:760px){.marquee figure{width:392px}.marquee__track{gap:24px}}
 
   /* ---------- sections ---------- */
-  section{position:relative;padding:84px 0}
-  .sec-h{font-size:27px;font-weight:700;color:var(--ink);line-height:1.36;letter-spacing:-.02em}
-  .sec-lead{margin-top:16px;color:var(--body);font-size:15.5px;line-height:1.85}
+  section{position:relative;padding:80px 0}
+  .sec-h{font-size:27px;font-weight:700;color:var(--ink);line-height:1.34;letter-spacing:-.02em;text-wrap:balance}
+  .sec-lead{margin-top:15px;color:var(--body);font-size:15.5px;line-height:1.8;text-wrap:pretty}
   .sec-head{max-width:720px}
   .center{text-align:center}
   .center .sec-head{margin:0 auto}
   .center .sec-lead{margin-left:auto;margin-right:auto}
-  .prose p{margin-top:15px;color:var(--body);font-size:15px;line-height:1.95}
+  .prose p{margin-top:13px;color:var(--body);font-size:14.5px;line-height:1.85;text-wrap:pretty}
   .prose p:first-child{margin-top:0}
-  .note{margin-top:14px;font-size:12px;color:#9aa2bd;line-height:1.7}
-  @media(min-width:760px){section{padding:112px 0}.sec-h{font-size:37px}}
+  .note{margin-top:13px;font-size:12px;color:#9aa2bd;line-height:1.7}
+  @media(min-width:760px){section{padding:100px 0}.sec-h{font-size:36px}}
 
   /* problem */
-  .p-list{list-style:none;margin-top:30px;display:grid;gap:1px;background:var(--line);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-  .p-list li{background:var(--panel);padding:18px 22px;font-size:14.5px;color:var(--ink);display:flex;gap:13px;align-items:flex-start;line-height:1.7}
+  .p-list{list-style:none;margin-top:28px;display:grid;gap:1px;background:var(--line);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .p-list li{background:var(--panel);padding:17px 22px;font-size:14.5px;color:var(--ink);display:flex;gap:13px;align-items:flex-start;line-height:1.65}
   .p-list li .x{flex:0 0 auto;color:var(--gold);font-weight:700;margin-top:1px}
-  .p-close{margin-top:26px;font-size:16px;color:var(--ink);font-weight:500;line-height:1.85}
+  .p-close{margin-top:24px;font-size:16px;color:var(--ink);font-weight:500;line-height:1.8;text-wrap:pretty}
   .p-close b{color:#fff;font-weight:700}
-  .scatter{margin-top:34px;position:relative;border:1px solid var(--line);border-radius:18px;background:
-    radial-gradient(120% 130% at 50% 0%,rgba(110,120,240,.08),transparent 60%),var(--panel);padding:34px 20px;text-align:center}
+  .scatter{margin-top:30px;position:relative;border:1px solid var(--line);border-radius:18px;background:
+    radial-gradient(120% 130% at 50% 0%,rgba(110,120,240,.08),transparent 60%),var(--panel);padding:32px 20px;text-align:center}
   .scatter .chips{display:flex;flex-wrap:wrap;gap:10px 12px;justify-content:center;max-width:560px;margin:0 auto}
-  .chip{font-size:12.5px;color:var(--body);padding:8px 15px;border-radius:999px;border:1px solid var(--line-2);
-    background:rgba(255,255,255,.05)}
-  .scatter .hq{margin-top:26px;font-size:13px;color:var(--muted)}
+  .chip{font-size:12.5px;color:var(--body);padding:8px 15px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.05)}
+  .scatter .hq{margin-top:24px;font-size:13px;color:var(--muted)}
   .scatter .hq b{display:inline-block;margin-bottom:4px;color:var(--faint);font-size:12px;letter-spacing:.1em}
 
-  /* shift before→after */
-  .shift{margin-top:42px;display:grid;gap:18px}
-  .shift__col{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--panel)}
-  .shift__col .tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-  .shift__col.before .tag{color:var(--muted)}
-  .shift__col.after{background:linear-gradient(165deg,rgba(110,120,240,.16),rgba(154,107,240,.06) 60%,transparent),var(--panel);
-    border-color:rgba(110,120,240,.34)}
-  .shift__col.after .tag{color:var(--brand-soft)}
-  .shift__col h3{margin-top:12px;font-size:18px;color:var(--ink);font-weight:700;line-height:1.6}
-  .shift__col p{margin-top:12px;font-size:14px;color:var(--body);line-height:1.85}
-  .shift__shot{margin-top:20px}
-  @media(min-width:860px){.shift{grid-template-columns:1fr 1fr;align-items:start}}
+  /* before / after */
+  .ba{margin-top:38px;display:grid;gap:16px;align-items:stretch}
+  .ba__col{border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--panel);display:flex;flex-direction:column}
+  .ba__col.after{background:linear-gradient(165deg,rgba(110,120,240,.12),transparent 72%),var(--panel);border-color:rgba(110,120,240,.32)}
+  .ba__tag{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 13px;border-radius:999px;margin-bottom:14px}
+  .ba__col.before .ba__tag{color:var(--muted);background:rgba(22,30,66,.05);border:1px solid var(--line)}
+  .ba__col.after .ba__tag{color:#fff;background:linear-gradient(120deg,var(--brand),var(--brand-2))}
+  .ba__col h3{font-size:18px;color:var(--ink);font-weight:700;line-height:1.55;text-wrap:balance}
+  .ba__col p{margin-top:11px;font-size:14px;color:var(--body);line-height:1.8}
+  .ba__arrow{display:none;align-items:center;justify-content:center;color:var(--brand-soft);font-size:26px;font-weight:700}
+  .ba-shot{margin-top:20px;max-width:900px;margin-left:auto;margin-right:auto}
+  @media(min-width:820px){.ba{grid-template-columns:1fr 46px 1fr}.ba__arrow{display:flex}}
 
   /* value sections */
-  .value{display:grid;gap:34px;align-items:start}
+  .value{display:grid;gap:30px;align-items:start}
   .value__num{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--gold)}
-  .value h2{margin-top:14px;font-size:25px;font-weight:700;color:var(--ink);line-height:1.4;letter-spacing:-.02em}
-  .value .lead{margin-top:15px;color:var(--brand-soft);font-size:15px;font-weight:500;line-height:1.8}
-  .value .prose{margin-top:16px}
+  .value h2{margin-top:13px;font-size:25px;font-weight:700;color:var(--ink);line-height:1.36;letter-spacing:-.02em;text-wrap:balance}
+  .value .lead{margin-top:14px;color:var(--brand-soft);font-size:15px;font-weight:500;line-height:1.75}
+  .value .prose{margin-top:15px}
   .value__media{display:grid;gap:16px}
   @media(min-width:860px){
-    .value{grid-template-columns:1fr 1.05fr;gap:54px}
+    .value{grid-template-columns:1fr 1.05fr;gap:48px}
     .value.rev .value__media{order:-1}
-    .value h2{font-size:30px}
+    .value h2{font-size:29px}
   }
 
-  /* figure box (図解) */
+  /* figure box */
   .figure-box{border:1px solid var(--line);border-radius:18px;background:
     radial-gradient(130% 120% at 50% 0%,rgba(110,120,240,.12),transparent 58%),var(--panel);padding:22px}
   .figure-tag{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;
@@ -221,7 +212,7 @@
   .kpi .nm{font-size:11px;color:var(--muted)}
   .kpi .big{font-size:22px;font-weight:700;color:var(--ink);margin-top:6px;letter-spacing:-.02em}
   .kpi .dl{font-size:10.5px;margin-top:5px;font-weight:600}
-  .kpi .up{color:#5BD6A0}.kpi .dn{color:#F2896B}.kpi .fl{color:var(--muted)}
+  .kpi .up{color:#3FA877}.kpi .dn{color:#D86A4A}.kpi .fl{color:var(--muted)}
   .kpi-bars{display:flex;align-items:flex-end;gap:8px;height:74px;margin-top:14px;padding:0 4px}
   .kpi-bars i{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--brand),rgba(110,120,240,.3))}
   .kpi-row{display:flex;justify-content:space-between;margin-top:10px;font-size:10px;color:var(--faint)}
@@ -235,47 +226,47 @@
   .flowline .alert{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;
     display:flex;align-items:center;gap:11px;font-size:13px;color:var(--ink)}
   .flowline .alert .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);
-    box-shadow:0 0 10px 1px rgba(230,185,104,.85);flex:0 0 auto}
+    box-shadow:0 0 10px 1px rgba(230,185,104,.7);flex:0 0 auto}
   .media-cap{margin-top:10px;font-size:11.5px;color:var(--muted);text-align:center}
 
   /* why-notion */
-  .why-grid{display:grid;gap:1px;margin-top:38px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .why{background:var(--panel);padding:26px 24px}
-  .why .ic{font-size:18px;margin-bottom:12px}
-  .why h3{font-size:16.5px;color:var(--ink);font-weight:700;line-height:1.5}
-  .why p{margin-top:10px;font-size:13.5px;color:var(--body);line-height:1.8}
+  .why-grid{display:grid;gap:1px;margin-top:36px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .why{background:var(--panel);padding:24px 22px}
+  .why .ic{font-size:18px;margin-bottom:11px}
+  .why h3{font-size:16.5px;color:var(--ink);font-weight:700;line-height:1.5;text-wrap:balance}
+  .why p{margin-top:9px;font-size:13.5px;color:var(--body);line-height:1.75}
   @media(min-width:860px){.why-grid{grid-template-columns:repeat(3,1fr)}}
-  .why-shots{margin-top:24px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  .why-shots{margin-top:22px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
   .why-shots figcaption{margin-top:9px;font-size:11px;color:var(--muted);text-align:center}
   @media(min-width:760px){.why-shots{grid-template-columns:repeat(3,1fr)}}
 
   /* flow */
-  .steps{margin-top:44px;display:grid;gap:16px}
+  .steps{margin-top:40px;display:grid;gap:16px}
   .step{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px 22px}
   .step .n{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:700;font-size:15px;color:#fff;
     background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px rgba(110,120,240,.45)}
   .step h3{font-size:16px;color:var(--ink);font-weight:700}
-  .step p{margin-top:7px;font-size:13.5px;color:var(--body);line-height:1.8}
+  .step p{margin-top:7px;font-size:13.5px;color:var(--body);line-height:1.75}
   @media(min-width:760px){.steps{grid-template-columns:1fr 1fr;gap:18px}}
 
   /* founder */
-  .founder{display:grid;gap:34px;align-items:center}
+  .founder{display:grid;gap:32px;align-items:center}
   .founder__visual{border:1px solid var(--line);border-radius:20px;
-    background:radial-gradient(120% 120% at 30% 0%,rgba(110,120,240,.2),transparent 60%),var(--panel);
-    padding:46px 30px;text-align:center}
+    background:radial-gradient(120% 120% at 30% 0%,rgba(110,120,240,.16),transparent 60%),var(--panel);
+    padding:44px 30px;text-align:center}
   .founder__mono{width:84px;height:84px;margin:0 auto 18px;border-radius:22px;display:grid;place-items:center;
     font-size:34px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));
-    box-shadow:0 14px 40px rgba(110,120,240,.55)}
+    box-shadow:0 14px 40px rgba(110,120,240,.45)}
   .founder__visual .role{font-size:13px;color:var(--brand-soft);font-weight:600}
   .founder__visual .role2{font-size:12px;color:var(--muted);margin-top:6px}
-  @media(min-width:860px){.founder{grid-template-columns:.85fr 1.15fr;gap:54px}}
+  @media(min-width:860px){.founder{grid-template-columns:.85fr 1.15fr;gap:52px}}
 
   /* faq */
-  .faq{margin-top:40px;display:grid;gap:14px}
-  .qa{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 24px}
-  .qa .q{font-size:15.5px;color:var(--ink);font-weight:700;line-height:1.6;display:flex;gap:11px}
+  .faq{margin-top:38px;display:grid;gap:14px}
+  .qa{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:21px 24px}
+  .qa .q{font-size:15.5px;color:var(--ink);font-weight:700;line-height:1.55;display:flex;gap:11px}
   .qa .q .mk{color:var(--brand-soft);font-weight:800;flex:0 0 auto}
-  .qa .a{margin-top:11px;font-size:13.5px;color:var(--body);line-height:1.85;padding-left:25px}
+  .qa .a{margin-top:10px;font-size:13.5px;color:var(--body);line-height:1.8;padding-left:25px}
 
   /* final cta */
   .final{position:relative;overflow:hidden;text-align:center;
@@ -284,9 +275,9 @@
     width:760px;height:420px;background:radial-gradient(50% 50% at 50% 50%,rgba(110,120,240,.5),transparent 70%);filter:blur(26px);z-index:0}
   .final .wrap{position:relative;z-index:2}
   .final .sec-h{font-size:28px}
-  .final .lead{margin:16px auto 0;max-width:560px;color:var(--body);font-size:15px}
-  .final .prose{max-width:600px;margin:24px auto 0}
-  .final .cta-row{margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:13px}
+  .final .lead{margin:15px auto 0;max-width:560px;color:var(--body);font-size:15px}
+  .final .prose{max-width:600px;margin:22px auto 0}
+  .final .cta-row{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:13px}
   .final .reassure{font-size:12px;color:var(--muted)}
   @media(min-width:760px){.final .sec-h{font-size:38px}}
 
@@ -360,12 +351,6 @@
       </g>
     </svg>
   </div>
-  <span class="codeglyph cg1" aria-hidden="true">const 校舎 = branches.filter(b =&gt; b.active)</span>
-  <span class="codeglyph cg2" aria-hidden="true">// 本部が、報告を待たずに見る</span>
-  <span class="codeglyph cg3" aria-hidden="true">{ 生徒: 451, 売上: "¥1,240万", 稼働: 0.87 }</span>
-  <span class="codeglyph cg4" aria-hidden="true">if (出欠↓ &amp;&amp; 成績↓) alert("退塾リスク")</span>
-  <span class="codeglyph cg5" aria-hidden="true">SELECT * FROM 全校舎 ORDER BY 退塾率</span>
-  <span class="codeglyph cg6" aria-hidden="true">退塾率 = 退塾 / 在籍数  // 全校舎で集計</span>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -374,7 +359,7 @@
         <p class="sub">2〜5校舎を運営する塾オーナーへ。各校の生徒数も売上も退塾も、教室長の報告を待たないと分からない――そんな状態から、校舎・講師・生徒・売上を1つのNotionに統合し、本部が報告を待たず数字で経営する状態をつくります。</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact">無料で経営相談する <span class="arw">→</span></a>
-          <p class="reassure">オンライン30分。現状を伺うだけでも構いません。その場での契約や売り込みはしません。</p>
+          <p class="reassure">オンライン30分。現状を伺うだけでも構いません。</p>
         </div>
       </div>
       <div class="hero-stage reveal">
@@ -391,7 +376,6 @@
 
 <!-- ===== FV直下 マーキー ===== -->
 <div class="strip t-base">
-  <div class="cap"><span class="t">コンセプトだけのLPではありません。実際に動いている画面です。</span></div>
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
       <figure><div class="shot"><img src="assets/screenshots/app/01-schedule.png" alt="時間割作成表"></div><figcaption>時間割作成表</figcaption></figure>
@@ -410,7 +394,7 @@
   </div>
 </div>
 
-<!-- ===== THE PROBLEM ===== -->
+<!-- ===== THE PROBLEM (dark) ===== -->
 <section class="t-deep" id="problem">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -436,43 +420,46 @@
   </div>
 </section>
 
-<!-- ===== THE SHIFT ===== -->
-<section class="t-indigo" id="shift">
+<!-- ===== THE SHIFT (beige / Before-After) ===== -->
+<section class="s-light" id="shift">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">THE SHIFT</span>
       <h2 class="sec-h" style="margin-top:14px">教室長任せの経営から、本部が見える経営へ。</h2>
-      <p class="sec-lead">多校舎塾マネジメントBASEがやることは、ひとつ。バラバラだった各校舎の情報を、本部が見られる1つの土台にまとめることです。</p>
+      <p class="sec-lead">バラバラだった各校舎の情報を、本部が見られる1つの土台にまとめる。やることは、それだけです。</p>
     </div>
-    <div class="shift">
-      <div class="shift__col before reveal">
-        <span class="tag">これまで</span>
+    <div class="ba reveal">
+      <div class="ba__col before">
+        <span class="ba__tag">Before</span>
         <h3>各校舎のExcelとLINE頼り</h3>
-        <p>本部は報告を待つしかなく、判断はいつも後手に回っていました。数字は校舎ごとに散らばり、全体像は誰かに聞かないと見えない。</p>
+        <p>本部は報告を待つしかなく、判断はいつも後手。数字は校舎ごとに散らばり、全体像は誰かに聞かないと見えない。</p>
       </div>
-      <div class="shift__col after reveal">
-        <span class="tag">これから</span>
+      <div class="ba__arrow" aria-hidden="true">→</div>
+      <div class="ba__col after">
+        <span class="ba__tag">After</span>
         <h3>全校舎の情報が、1つのNotionに集約</h3>
-        <p>生徒・売上・退塾・コマ稼働が1か所に集まる。本部は報告を待たず、今この瞬間の数字を自分で見て判断できる。感覚や報告に頼る経営から、数字で意思決定する経営へ。</p>
-        <div class="shift__shot"><div class="shot shot--crop"><img src="assets/screenshots/notion/01-crm-home.png" alt="1つのNotionに統合された塾管理のホーム画面"></div></div>
+        <p>生徒・売上・退塾・コマ稼働が1か所に。本部は報告を待たず、今この瞬間の数字を自分で見て判断できる。</p>
       </div>
     </div>
+    <figure class="ba-shot reveal">
+      <div class="shot shot--crop"><img src="assets/screenshots/notion/01-crm-home.png" alt="全校舎の情報が集約された塾管理のホーム画面"></div>
+      <figcaption class="media-cap">実画面 ｜ 全校舎の情報が集約されたホーム</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ===== VALUE 01 ===== -->
+<!-- ===== VALUE 01 (dark) ===== -->
 <section class="t-base" id="value">
   <div class="wrap">
     <div class="value reveal">
       <div class="value__body">
         <span class="value__num">VALUE 01</span>
         <h2>全校舎の今が、1画面でわかる。</h2>
-        <p class="lead">生徒数・売上・退塾率・コマ稼働率を本部でまとめて見る。教室長の報告を待たず、本部が即座に把握できる状態が、多校舎経営の最初の土台です。</p>
+        <p class="lead">生徒数・売上・退塾率・コマ稼働率を本部でまとめて見る。報告を待たず即座に把握できる状態が、多校舎経営の最初の土台です。</p>
         <div class="prose">
-          <p>「A校は今月どうだ」「B校の稼働は埋まっているか」。これまで電話やLINEで聞いて回っていた数字が、開けばそこにあります。どの校舎が伸びていて、どの校舎が落ちているのか。並べた瞬間に、本部が次に何をすべきかが、感覚ではなく数字で決まります。</p>
-          <p>生徒一人ひとりの情報、講師ごとの担当コマ、請求の状況まで、すべて同じNotionの中でつながっています。</p>
+          <p>電話やLINEで聞いて回っていた数字が、開けばそこにあります。どの校舎が伸び、どの校舎が落ちているか。並べた瞬間に、次の一手が感覚ではなく数字で決まります。</p>
         </div>
-        <p class="note">※ 全校舎KPIを束ねる本部ダッシュボードは図解で表現しています。その土台となる各校舎の生徒・講師・時間割・請求のデータは、本ページの実画面でご確認いただけます。</p>
+        <p class="note">※ 本部ダッシュボードは図解です。各校舎の生徒・講師・時間割・請求の実データは、本ページの実画面でご確認いただけます。</p>
       </div>
       <div class="value__media">
         <div class="figure-box">
@@ -493,8 +480,8 @@
   </div>
 </section>
 
-<!-- ===== VALUE 02 （生徒情報スクショ→上／退塾検知図解→下・上端揃え） ===== -->
-<section class="t-teal" id="value-2">
+<!-- ===== VALUE 02 (beige / compact・図解1点) ===== -->
+<section class="s-light" id="value-2">
   <div class="wrap">
     <div class="value rev reveal">
       <div class="value__body">
@@ -502,16 +489,12 @@
         <h2>退塾を、増える前に止める。</h2>
         <p class="lead">退塾は突然ではありません。欠席が増える、成績が下がる、面談が途絶える。兆候は必ず数字に出ています。</p>
         <div class="prose">
-          <p>成績が下がり始めた生徒、欠席が増えてきた生徒、面談で気になる発言があった生徒。こうしたサインは現場では拾えても、本部までは届きません。出欠・成績・面談記録といった日々のデータをもとに、退塾につながりそうな兆候を早い段階で拾い上げ、本部と教室長が手遅れになる前に共有できる状態を目指します。</p>
-          <p>退塾が1人増えれば、その校舎の年間売上はその分だけ確実に減ります。辞めてから対応するのではなく、辞めそうな段階で動ける。それが多校舎全体の数字を守ります。</p>
+          <p>出欠・成績・面談記録といった日々のデータから、退塾につながりそうな兆候を早い段階で拾い上げ、本部と教室長が手遅れになる前に共有できる状態を目指します。</p>
+          <p>退塾が1人増えれば、その校舎の年間売上はその分だけ減ります。辞めてから動くのではなく、辞めそうな段階で動ける。それが多校舎全体の数字を守ります。</p>
         </div>
-        <p class="note">※ 退塾兆候のアラート自体は図解で表現しています。判断材料となる成績推移や生徒情報は、上記の実画面でご確認いただけます。</p>
+        <p class="note">※ 退塾兆候のアラートは図解です。判断材料となる成績推移は、上部の実画面でご確認いただけます。</p>
       </div>
       <div class="value__media">
-        <figure>
-          <div class="shot"><img src="assets/screenshots/app/04-student-scores.png" alt="生徒のテスト成績の推移グラフ（実画面）"></div>
-          <figcaption class="media-cap">実画面 ｜ 生徒ごとのテスト成績の推移</figcaption>
-        </figure>
         <div class="figure-box">
           <div class="figure-tag">退塾兆候の検知（イメージ）</div>
           <div class="flowline">
@@ -527,8 +510,8 @@
   </div>
 </section>
 
-<!-- ===== VALUE 03 ===== -->
-<section class="t-violet" id="value-3">
+<!-- ===== VALUE 03 (dark) ===== -->
+<section class="t-base" id="value-3">
   <div class="wrap">
     <div class="value reveal">
       <div class="value__body">
@@ -536,8 +519,8 @@
         <h2>校舎を増やしても、崩れない。</h2>
         <p class="lead">拡大のたびに運営がゼロから始まるなら、それは仕組みではなく属人化です。</p>
         <div class="prose">
-          <p>多くの塾で、出店のたびに管理がゼロから組み直しになります。新しい教室長の我流が始まり、様式も運用も校舎ごとに枝分かれしていく。これが拡大のたびに経営が崩れる正体です。</p>
-          <p>多校舎塾マネジメントBASEなら、すでに回っている校舎の仕組みをそのまま複製して新校舎を立ち上げられます。生徒管理も、時間割も、請求も、講師の担当割りも、同じ型でそのまま立ち上がる。教室長が代わっても、校舎が増えても、本部のガバナンスが効いたまま運営が続きます。</p>
+          <p>出店のたびに管理がゼロから組み直しになり、新しい教室長の我流が始まる。これが拡大のたびに経営が崩れる正体です。</p>
+          <p>多校舎塾マネジメントBASEなら、回っている校舎の仕組みをそのまま複製して新校舎を立ち上げられます。教室長が代わっても、校舎が増えても、本部のガバナンスが効いたまま運営が続きます。</p>
         </div>
       </div>
       <div class="value__media">
@@ -550,12 +533,12 @@
   </div>
 </section>
 
-<!-- ===== WHY NOTION ===== -->
-<section class="t-deep" id="why">
+<!-- ===== WHY NOTION (beige) ===== -->
+<section class="s-light" id="why">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">WHY NOTION</span>
-      <h2 class="sec-h" style="margin-top:14px">高額な塾システムでも、Excelでもない。<br>第三の選択肢。</h2>
+      <h2 class="sec-h" style="margin-top:14px">高額な塾システムでも、Excelでもない。第三の選択肢。</h2>
       <p class="sec-lead">中小塾が大手の塾管理システムを入れて続かない理由は、はっきりしています。高すぎて、多機能すぎるからです。</p>
     </div>
     <div class="why-grid reveal">
@@ -584,8 +567,8 @@
   </div>
 </section>
 
-<!-- ===== THE FLOW ===== -->
-<section class="t-indigo" id="flow">
+<!-- ===== THE FLOW (dark) ===== -->
+<section class="t-base" id="flow">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">THE FLOW</span>
@@ -601,8 +584,8 @@
   </div>
 </section>
 
-<!-- ===== WHO WE ARE ===== -->
-<section class="t-base" id="founder">
+<!-- ===== WHO WE ARE (beige) ===== -->
+<section class="s-light" id="founder">
   <div class="wrap">
     <div class="founder reveal">
       <div class="founder__visual">
@@ -614,16 +597,16 @@
         <span class="sec-label">WHO WE ARE</span>
         <h2 class="sec-h" style="margin-top:14px;font-size:26px">現役の塾講師が、塾のためにつくっています。</h2>
         <p class="sec-lead">塾の現場を知らない開発会社が作ったツールではありません。実際に教壇に立つ人間が、自塾の課題を解くために組み上げた仕組みです。</p>
-        <div class="prose" style="margin-top:18px">
+        <div class="prose" style="margin-top:16px">
           <p>だから「出欠と成績と面談がどうつながると退塾が見えるのか」「教室長が本当に毎日使える形は何か」を、現場の言葉で理解しています。</p>
-          <p>汎用テンプレートの押し付けではなく、御塾の運用に合わせて土台をオーダーメイドで設計します。導入後も、現場感覚を持ったまま一緒に育てていきます。多校舎の経営を任せる相手として、現場が分かっている人間が作ったか。ここを一番見ていただきたい点です。</p>
+          <p>汎用テンプレートの押し付けではなく、御塾の運用に合わせて土台をオーダーメイドで設計します。多校舎の経営を任せる相手として、現場が分かっている人間が作ったか。ここを一番見ていただきたい点です。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
+<!-- ===== FAQ (dark) ===== -->
 <section class="t-deep" id="faq">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -641,7 +624,7 @@
   </div>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
+<!-- ===== FINAL CTA (dark) ===== -->
 <section class="final" id="contact">
   <div class="wrap">
     <span class="sec-label reveal">GET STARTED</span>
@@ -649,11 +632,11 @@
     <p class="lead reveal">校舎を増やしてから管理に追われるか、増やす前に仕組みを整えるか。その差が、3年後の経営を分けます。</p>
     <div class="prose reveal">
       <p>まずは無料相談で、御塾の現状をお聞かせください。今の校舎数・運営体制・困っていることをうかがい、どこから手をつければ「本部が見える経営」に変えられるかを一緒に整理します。</p>
-      <p>オンライン30分。その場での契約や売り込みはしません。「うちはまだ仕組み化できていない」。その段階の方こそ、お話しする価値があります。</p>
+      <p>「うちはまだ仕組み化できていない」――その段階の方こそ、お話しする価値があります。</p>
     </div>
     <div class="cta-row reveal">
       <a class="btn btn-primary" href="mailto:kazutoue45@gmail.com?subject=%E3%80%90%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%80%91%E5%A4%9A%E6%A0%A1%E8%88%8E%E5%A1%BE%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88BASE&body=%E6%A0%A1%E8%88%8E%E6%95%B0%EF%BC%9A%0A%E7%94%9F%E5%BE%92%E6%95%B0%EF%BC%9A%0A%E7%8F%BE%E5%9C%A8%E3%81%AE%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95%EF%BC%9A%0A%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0A">無料で経営相談する <span class="arw">→</span></a>
-      <p class="reassure">オンライン30分 ／ 現状を伺うだけでも構いません ／ 売り込みはしません</p>
+      <p class="reassure">オンライン30分 ／ 現状を伺うだけでも構いません</p>
     </div>
   </div>
 </section>
