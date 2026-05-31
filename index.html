@@ -260,7 +260,7 @@
     animation:orbit var(--dur) linear var(--delay,0s) infinite;will-change:transform}
   .orbiter .arm{position:absolute;left:var(--R);top:0;transform:translate(-50%,-50%)}
   .orbiter .ocard{animation:orbit var(--dur) linear var(--delay,0s) infinite reverse;will-change:transform}
-  .orbiter .ocard img{display:block;width:var(--CW);aspect-ratio:16/10;object-fit:cover;object-position:top center;
+  .orbiter .ocard img{display:block;width:var(--CW);max-width:none;aspect-ratio:16/10;object-fit:cover;object-position:top center;
     border-radius:10px;border:1px solid #e5e1d4;background:#fff;
     box-shadow:0 18px 40px -18px rgba(22,30,66,.4),0 2px 8px rgba(22,30,66,.07)}
   @keyframes orbit{to{transform:rotate(360deg)}}
