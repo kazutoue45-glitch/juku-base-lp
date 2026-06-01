@@ -79,25 +79,28 @@
   /* ---------- HERO (left copy / right laptop) ---------- */
   .hero{position:relative;overflow:hidden;padding:60px 0 22px;
     background:
-      radial-gradient(95% 70% at 78% -5%,rgba(110,120,240,.26),transparent 55%),
-      radial-gradient(70% 60% at 12% 8%,rgba(154,107,240,.12),transparent 60%),
-      linear-gradient(180deg,#243562 0%,#1f2d56 52%,var(--bg) 100%)}
-  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
-    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-    background-size:60px 60px;
-    -webkit-mask-image:radial-gradient(95% 80% at 70% 20%,#000 0%,transparent 78%);
-    mask-image:radial-gradient(95% 80% at 70% 20%,#000 0%,transparent 78%)}
+      linear-gradient(90deg,rgba(8,11,24,.84) 0%,rgba(8,11,24,.44) 38%,rgba(8,11,24,0) 70%),
+      radial-gradient(120% 125% at 94% 114%,rgba(5,8,20,.82),transparent 56%),
+      radial-gradient(100% 90% at 80% -6%,rgba(122,134,255,.14),transparent 55%),
+      linear-gradient(180deg,rgba(22,30,62,.28) 0%,rgba(9,14,30,.52) 100%),
+      #0b1124 url('assets/fv-bg-a.png') center center / cover no-repeat}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(135% 130% at 50% 42%,transparent 50%,rgba(4,7,18,.55) 100%)}
   .hero-deco{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-  .hero-deco svg{position:absolute;right:-3%;top:0;width:78%;height:100%;color:#9bb2ff;opacity:.7;
+  .hero-deco svg{position:absolute;right:-3%;top:0;width:78%;height:100%;color:#c2cbe4;opacity:.63;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%)}
   .hero-band{position:relative;z-index:1;width:100%;margin-top:clamp(24px,3.4vw,44px);line-height:0;pointer-events:none;user-select:none}
   .hero-band svg{display:block;width:100%;height:auto;overflow:visible}
-  .hero-band text{font-family:var(--font);font-size:56px;font-weight:800;letter-spacing:-.012em;fill:rgba(176,184,255,.10)}
+  .hero-band text{font-family:var(--font);font-size:56px;font-weight:800;letter-spacing:-.012em;fill:rgba(212,219,236,.06)}
   .hero .wrap{position:relative;z-index:2}
   .hero-grid{display:grid;gap:40px;align-items:center}
   .hero-copy{text-align:left}
-  .hero-copy h1{margin-top:18px;font-size:clamp(27px,6.6vw,40px);font-weight:700;color:var(--ink);letter-spacing:-.022em;line-height:1.4}
-  .hero-copy h1 .l2{background:linear-gradient(120deg,#fff 8%,var(--brand-soft) 96%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-copy h1{margin-top:18px;font-size:clamp(27px,6.6vw,40px);font-weight:700;letter-spacing:-.022em;line-height:1.4;text-wrap:balance;
+    filter:drop-shadow(0 -1px 0 rgba(255,255,255,.22)) drop-shadow(0 1px 1px rgba(5,9,24,.34))}
+  .hero-copy h1 .l1,.hero-copy h1 .l2{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .hero-copy h1 .nb{white-space:nowrap}
+  .hero-copy h1 .l1{background-image:linear-gradient(176deg,#fdfefe 0%,#cfd6e6 18%,#8c97b0 40%,#ffffff 50%,#97a2bb 60%,#c5cdde 82%,#eef2f9 100%)}
+  .hero-copy h1 .l2{background-image:linear-gradient(176deg,#ffffff 0%,#dde3ef 22%,#aeb8cd 44%,#ffffff 52%,#b4bed1 64%,#e9edf5 100%)}
   .hero-copy .sub{margin-top:22px;max-width:540px;font-size:15px;color:var(--body);line-height:1.85}
   .hero-copy .cta-row{margin-top:30px;display:flex;flex-direction:column;align-items:flex-start;gap:13px}
   .hero-copy .reassure{font-size:11.5px;color:var(--muted);line-height:1.7;max-width:440px}
@@ -256,7 +259,7 @@
   .story .storybg::after{content:"";position:absolute;inset:0}
   .story>.wrap{position:relative;z-index:2}
   .story-problem{padding:104px 0;display:flex;align-items:center;min-height:600px;background:#0b1024}
-  .story-problem .storybg{background-image:url("assets/problem-hero.png");background-position:right center}
+  .story-problem .storybg{background-image:url("assets/problem-hero.png");background-position:right 65%;background-size:auto 64%}
   .story-problem .storybg::after{background:linear-gradient(90deg,rgba(9,13,30,.96) 0%,rgba(10,15,34,.88) 34%,rgba(12,18,40,.5) 64%,rgba(12,18,40,.1) 100%)}
   .story-problem .story-text{max-width:600px}
   .story-problem .p-list{margin-top:24px}
@@ -269,17 +272,45 @@
   @media(max-width:760px){.sol-hero{margin-top:26px}}
   @media(max-width:760px){
     .story-problem .storybg::after{background:linear-gradient(180deg,rgba(9,13,30,.9) 0%,rgba(10,15,34,.8) 45%,rgba(12,18,40,.6) 100%)}
+    .story-problem .storybg{background-size:cover;background-position:center}
     .story-problem{min-height:0;padding:80px 0}
     .story-solution{min-height:640px}
   }
 
   /* why-notion */
-  .why-grid{display:grid;gap:1px;margin-top:36px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .why{background:var(--panel);padding:24px 22px}
-  .why .ic{font-size:18px;margin-bottom:11px}
-  .why h3{font-size:16.5px;color:var(--ink);font-weight:700;line-height:1.5;text-wrap:balance}
-  .why p{margin-top:9px;font-size:13.5px;color:var(--body);line-height:1.75}
-  @media(min-width:860px){.why-grid{grid-template-columns:repeat(3,1fr)}}
+  /* WHY US — heading */
+  .why-top{margin-top:6px;margin-bottom:30px}
+  .why-h{font-size:clamp(26px,4.6vw,40px);line-height:1.3;margin-top:13px}
+  .why-h .hl{color:var(--brand)}
+  @media(min-width:860px){.why-top{margin-bottom:36px}}
+  /* comparison: よくある構築 → BASE */
+  .why-compare{display:grid;grid-template-columns:1fr;gap:13px}
+  .cmp{background:var(--panel);border-radius:14px;overflow:hidden}
+  .cmp__head{height:50px;display:flex;align-items:center;padding:0 18px;font-weight:700}
+  .cmp--plain .cmp__head{background:var(--card);color:var(--muted);font-size:14.5px}
+  .cmp--base .cmp__head{background:var(--ink);color:#fff;font-size:18px;letter-spacing:.22em;justify-content:center}
+  .cmp__row{display:flex;align-items:center;gap:12px;min-height:56px;padding:9px 18px;border-top:1px solid var(--line);font-size:14px}
+  .cmp--plain .cmp__row{color:var(--body);font-weight:600}
+  .cmp--base .cmp__row{color:var(--ink);font-weight:700}
+  .cmp-ic{flex:0 0 auto;width:32px;height:32px;border-radius:50%;display:grid;place-items:center}
+  .cmp-ic svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .cmp--plain .cmp-ic{background:var(--card);color:var(--muted)}
+  .cmp--base .cmp-ic{background:var(--ink);color:#fff}
+  .cmp-arws{display:none}
+  @media(min-width:760px){
+    .why-compare{grid-template-columns:1fr 46px 1fr;gap:0;align-items:start}
+    .cmp-arws{display:flex;flex-direction:column;padding-top:50px}
+    .cmp-arws span{height:56px;display:flex;align-items:center;justify-content:center}
+    .cmp-arws svg{width:22px;height:22px;fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.5}
+  }
+  /* WHY US — 3 cards */
+  .why-cards{margin-top:14px;display:grid;gap:13px}
+  .wcard{background:var(--panel-2);border-radius:14px;padding:24px 22px}
+  .wcard__ic{width:48px;height:48px;border-radius:50%;background:var(--panel);display:grid;place-items:center;color:var(--ink);margin-bottom:15px}
+  .wcard__ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .wcard h3{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;letter-spacing:-.01em;text-wrap:balance}
+  .wcard p{margin-top:10px;font-size:13px;color:var(--body);line-height:1.78}
+  @media(min-width:760px){.why-cards{grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}}
   .why-shots{margin-top:22px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
   .why-shots figcaption{margin-top:9px;font-size:11px;color:var(--muted);text-align:center}
   @media(min-width:760px){.why-shots{grid-template-columns:repeat(3,1fr)}}
@@ -366,44 +397,12 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
-  <div class="hero-deco" aria-hidden="true">
-    <svg viewBox="0 0 600 520" fill="none" preserveAspectRatio="xMidYMid meet">
-      <g stroke="currentColor" stroke-width="1" opacity="0.55">
-        <path d="M60 80 H300 V200 H470" stroke-opacity="0.5"/>
-        <path d="M30 300 H180 V420 H420 V250" stroke-opacity="0.4"/>
-        <path d="M360 60 V160 H540" stroke-opacity="0.45"/>
-        <path d="M120 460 H300 V360" stroke-opacity="0.35"/>
-        <path d="M470 200 V330 H560" stroke-opacity="0.4"/>
-      </g>
-      <g fill="currentColor">
-        <circle cx="300" cy="200" r="3.5" opacity="0.8"/>
-        <circle cx="470" cy="200" r="3" opacity="0.7"/>
-        <circle cx="180" cy="420" r="3" opacity="0.6"/>
-        <circle cx="360" cy="160" r="3" opacity="0.7"/>
-        <circle cx="540" cy="160" r="2.5" opacity="0.6"/>
-        <circle cx="420" cy="250" r="3" opacity="0.6"/>
-        <circle cx="300" cy="360" r="2.5" opacity="0.5"/>
-        <circle cx="60" cy="80" r="2.5" opacity="0.5"/>
-      </g>
-      <g stroke="currentColor" fill="none" opacity="0.4">
-        <rect x="392" y="92" width="118" height="74" rx="9" stroke-opacity="0.55"/>
-        <line x1="404" y1="112" x2="470" y2="112" stroke-opacity="0.45"/>
-        <line x1="404" y1="128" x2="492" y2="128" stroke-opacity="0.4"/>
-        <line x1="404" y1="144" x2="456" y2="144" stroke-opacity="0.4"/>
-        <rect x="58" y="180" width="104" height="64" rx="8" stroke-opacity="0.4"/>
-        <line x1="70" y1="200" x2="120" y2="200" stroke-opacity="0.4"/>
-        <line x1="70" y1="216" x2="146" y2="216" stroke-opacity="0.35"/>
-        <circle cx="500" cy="380" r="42" stroke-opacity="0.4"/>
-        <path d="M500 380 L500 345" stroke-opacity="0.5"/>
-        <path d="M500 380 L528 396" stroke-opacity="0.5"/>
-      </g>
-    </svg>
-  </div>
+  <!-- FV背景は .hero の background-image (assets/fv-bg-a.png) で表現 -->
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">多校舎塾マネジメントBASE</span>
-        <h1>教室長任せの多校舎運営に<br><span class="l2">限界を感じている塾オーナーへ。</span></h1>
+        <h1><span class="l1">教室長任せの多校舎運営に</span><br><span class="l2">限界を感じている<span class="nb">塾オーナーへ。</span></span></h1>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact">無料で経営診断する <span class="arw">→</span></a>
           <p class="reassure">オンライン30分。現状を伺うだけでも構いません。</p>
@@ -530,29 +529,55 @@
   </div>
 </section>
 
-<!-- ===== WHY NOTION (beige) ===== -->
+<!-- ===== WHY US (beige) ===== -->
 <section class="s-light" id="why">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">WHY NOTION</span>
-      <h2 class="sec-h" style="margin-top:14px">高額な塾システムでも、Excelでもない。第三の選択肢。</h2>
-      <p class="sec-lead">中小塾が大手の塾管理システムを入れて続かない理由は、はっきりしています。高すぎて、多機能すぎるからです。</p>
+    <div class="why-top">
+      <div class="sec-head reveal">
+        <span class="sec-label">WHY US</span>
+        <h2 class="sec-h why-h">人の頑張りで回る塾から、<br><span class="hl">仕組みで伸びる塾へ。</span></h2>
+        <p class="sec-lead">多校舎塾マネジメントBASEは、ただ情報を整えるだけのサービスではありません。塾運営で本当に必要な「時間割」「講師配置」「生徒対応」「請求確認」「情報共有」まで見据え、経営と現場の両方で使える形に落とし込みます。</p>
+      </div>
     </div>
-    <div class="why-grid reveal">
-      <div class="why">
-        <div class="ic">📊</div>
-        <h3>大手システムは、高すぎて多機能すぎる</h3>
-        <p>月額数万円から。機能は立派でも、2〜5校舎の塾には使わない機能がほとんどで、結局Excelと紙とLINEに逆戻りする。多くの塾が通る道です。</p>
+
+    <div class="why-compare reveal">
+      <div class="cmp cmp--plain">
+        <div class="cmp__head">よくある構築</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M14.6 6.3a4 4 0 0 0-5.3 5.3L3 18l3 3 6.4-6.3a4 4 0 0 0 5.3-5.3l-2.8 2.8-2.4-.6-.6-2.4 2.8-2.8z"/></svg></span>ツールを整えて終わる</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.3"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.3"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.3"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.3"/></svg></span>汎用的な構成</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8.5 21h7M12 17v4"/></svg></span>画面中心の提案</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4.4"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(120 12 12)"/></svg></span>きれいだが定着しない</div>
       </div>
-      <div class="why">
-        <div class="ic">🧩</div>
-        <h3>大手の3分の1以下で、自由にカスタマイズ</h3>
-        <p>多校舎塾マネジメントBASEは、大手システムの3分の1以下の価格で導入できます。塾の業務に合わせて自由に組めるので、使わない機能にお金を払う必要がありません。</p>
+      <div class="cmp-arws" aria-hidden="true">
+        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
       </div>
-      <div class="why">
-        <div class="ic">✦</div>
-        <h3>Notion AIが、経営の相談相手になる</h3>
-        <p>蓄積した自塾の数字をもとに「この校舎の退塾が増えている理由は」「来月のコマ配置はどうすべきか」に答える。データを貯めるだけでなく、判断を助けるパートナーです。</p>
+      <div class="cmp cmp--base">
+        <div class="cmp__head">BASE</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>運用まで見据える</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M16 20v-1.6a3.6 3.6 0 0 0-3.6-3.6H6.6A3.6 3.6 0 0 0 3 18.4V20"/><circle cx="9.5" cy="7.5" r="3.6"/><path d="M21 20v-1.6a3.6 3.6 0 0 0-2.7-3.5M15.5 4.1a3.6 3.6 0 0 1 0 6.8"/></svg></span>塾の実務に合わせる</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="5" rx="1.2"/><rect x="2.5" y="16.5" width="6" height="5" rx="1.2"/><rect x="15.5" y="16.5" width="6" height="5" rx="1.2"/><path d="M12 7.5v4M5.5 16.5v-5h13v5"/></svg></span>業務フローから設計</div>
+        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 0 1 14.5-6L20.5 8.5M20.5 4v4.5H16"/><path d="M20.5 12a8.5 8.5 0 0 1-14.5 6L3.5 15.5M3.5 20v-4.5H8"/></svg></span>現場で使い続けられる</div>
+      </div>
+    </div>
+
+    <div class="why-cards reveal">
+      <div class="wcard">
+        <div class="wcard__ic"><svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2.2"/><path d="M9 4.5V3.2A1.2 1.2 0 0 1 10.2 2h3.6A1.2 1.2 0 0 1 15 3.2V4.5"/><circle cx="12" cy="13.2" r="3.4"/><path d="M12 11.4v1.8l1.3 1"/></svg></div>
+        <h3>塾の実務を前提に設計する</h3>
+        <p>生徒情報や講師情報を整えるだけでは、塾の管理は回りません。時間割、請求、面談、講師配置、校舎ごとの状況確認まで、実際の塾運営の流れに沿って設計します。</p>
+      </div>
+      <div class="wcard">
+        <div class="wcard__ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.3"/><path d="M3 20v-1.4A4.6 4.6 0 0 1 7.6 14h2.8a4.6 4.6 0 0 1 3.1 1.2"/><path d="M14.8 13.6l1.9 1.9 3.5-3.9"/></svg></div>
+        <h3>現場で使い続けられることを優先する</h3>
+        <p>見た目が整っていても、現場で入力されず、更新されず、使われなければ意味がありません。多校舎塾マネジメントBASEは、現場が使い続けられることを前提に、運用まで見据えて組み上げます。</p>
+      </div>
+      <div class="wcard">
+        <div class="wcard__ic"><svg viewBox="0 0 24 24"><path d="M4 21h16M5.5 21V9.5L12 6l6.5 3.5V21M9.5 21v-4.5h5V21"/><path d="M12 6V3M12 3l3 1"/></svg></div>
+        <h3>塾ごとの運営に合わせて仕組み化できる</h3>
+        <p>塾によって、校舎体制も、講師配置も、請求の流れも違います。既存の枠をそのまま当てはめるのではなく、今の運営をもとに、必要な仕組みを整理して設計します。</p>
       </div>
     </div>
     <div class="why-shots reveal">
