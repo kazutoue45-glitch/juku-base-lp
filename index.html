@@ -284,12 +284,16 @@
 
   /* flow */
   .steps{margin-top:40px;display:grid;gap:16px}
-  .step{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px 22px}
+  .step{position:relative;overflow:hidden;display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px 22px}
+  .step__ic{order:9;flex:0 0 auto;align-self:center;width:86px;height:86px;opacity:.95;pointer-events:none}
+  .step__ic img{width:100%;height:100%;display:block;object-fit:contain}
+  .step>.n{align-self:flex-start}
+  .step>div{flex:1;min-width:0}
   .step .n{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:700;font-size:15px;color:#fff;
     background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px rgba(110,120,240,.45)}
   .step h3{font-size:16px;color:var(--ink);font-weight:700}
   .step p{margin-top:7px;font-size:13.5px;color:var(--body);line-height:1.75}
-  @media(min-width:760px){.steps{grid-template-columns:1fr 1fr;gap:18px}}
+  @media(min-width:760px){.steps{grid-template-columns:1fr 1fr;gap:18px}.step{gap:20px}.step__ic{width:120px;height:120px}}
 
   /* founder */
   .founder{display:grid;gap:32px;align-items:center}
@@ -567,10 +571,10 @@
       <p class="sec-lead">今の管理を全部入れ替える必要はありません。まずは現状を伺うところから始めます。</p>
     </div>
     <div class="steps reveal">
-      <div class="step"><span class="n">1</span><div><h3>無料相談（オンライン30分）</h3><p>現在の校舎数・運営体制・困っていること、本部が見たい数字をうかがいます。今の仕組みのどこが崩れやすいかを一緒に整理します。</p></div></div>
-      <div class="step"><span class="n">2</span><div><h3>設計のご提案とカスタマイズ</h3><p>御塾の業務に合わせてNotionを設計します。どの校舎の、どの数字を本部で見たいか。優先順位を一緒に決めます。</p></div></div>
-      <div class="step"><span class="n">3</span><div><h3>構築・データ移行</h3><p>既存のExcelや管理表から、生徒・講師・売上の必要なデータを引き継ぎながら移します。ゼロからの入力し直しにはなりません。</p></div></div>
-      <div class="step"><span class="n">4</span><div><h3>運用開始と全校舎への展開</h3><p>まず1校舎で動かし、型が固まったら他校舎へコピー展開。本部が全体を見る運用に移行します。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-1.png" alt="" loading="lazy"></span><span class="n">1</span><div><h3>無料相談（オンライン30分）</h3><p>現在の校舎数・運営体制・困っていること、本部が見たい数字をうかがいます。今の仕組みのどこが崩れやすいかを一緒に整理します。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-2.png" alt="" loading="lazy"></span><span class="n">2</span><div><h3>設計のご提案とカスタマイズ</h3><p>御塾の業務に合わせてNotionを設計します。どの校舎の、どの数字を本部で見たいか。優先順位を一緒に決めます。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-3.png" alt="" loading="lazy"></span><span class="n">3</span><div><h3>構築・データ移行</h3><p>既存のExcelや管理表から、生徒・講師・売上の必要なデータを引き継ぎながら移します。ゼロからの入力し直しにはなりません。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-4.png" alt="" loading="lazy"></span><span class="n">4</span><div><h3>運用開始と全校舎への展開</h3><p>まず1校舎で動かし、型が固まったら他校舎へコピー展開。本部が全体を見る運用に移行します。</p></div></div>
     </div>
   </div>
 </section>
