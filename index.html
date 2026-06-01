@@ -202,6 +202,18 @@
   .value .prose{margin-top:15px}
   .value__media{display:grid;gap:16px}
   .value + .value{margin-top:74px}
+  .vstack{margin-top:50px}
+  .vstack .value + .value{margin-top:60px}
+  .vlist{list-style:none;margin-top:20px;display:grid;gap:13px}
+  .vlist li{position:relative;padding-left:27px;font-size:14px;color:var(--body);line-height:1.7}
+  .vlist li::before{content:"";position:absolute;left:2px;top:8px;width:11px;height:11px;border-radius:3px;
+    background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+  .vlist li b{display:block;color:var(--ink);font-weight:700;font-size:14.5px;margin-bottom:2px}
+  .value h2 .hl-30{color:var(--gold)}
+  .vhead{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .vhead h2{margin-top:0}
+  .vnum{font-size:46px;font-weight:800;line-height:1.36;color:var(--gold);letter-spacing:-.03em}
+  @media(min-width:860px){.vnum{font-size:56px;line-height:1.36}.vhead{gap:22px}}
   @media(min-width:860px){
     .value{grid-template-columns:1fr 1.05fr;gap:48px}
     .value.rev .value__media{order:-1}
@@ -247,25 +259,12 @@
   .story-problem .story-text{max-width:600px}
   .story-problem .p-list{margin-top:24px}
   .story-problem .p-close{margin-top:24px}
-  .story-solution{padding:96px 0 120px;background:var(--beige)}
+  .story-solution{padding:86px 0 94px;background:var(--beige)}
   .story-solution .story-text{max-width:700px;margin:0 auto;text-align:center}
-  /* product orbit: center static, surrounding screenshots revolve around it */
-  .sol-stage{position:relative;width:100%;max-width:940px;height:740px;margin:54px auto 0;
-    --R:288px;--CW:176px;--dur:24s}
-  .sc-c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:40%;z-index:10}
-  .sc-c img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top center;
-    border-radius:13px;border:1px solid #e5e1d4;background:#fff;
-    box-shadow:0 40px 74px -26px rgba(22,30,66,.5),0 0 0 1px rgba(110,120,240,.12)}
-  .orbiter{position:absolute;left:50%;top:50%;width:0;height:0;z-index:2;
-    animation:orbit var(--dur) linear var(--delay,0s) infinite;will-change:transform}
-  .orbiter .arm{position:absolute;left:var(--R);top:0;transform:translate(-50%,-50%)}
-  .orbiter .ocard{animation:orbit var(--dur) linear var(--delay,0s) infinite reverse;will-change:transform}
-  .orbiter .ocard img{display:block;width:var(--CW);max-width:none;aspect-ratio:16/10;object-fit:cover;object-position:top center;
-    border-radius:10px;border:1px solid #e5e1d4;background:#fff;
-    box-shadow:0 18px 40px -18px rgba(22,30,66,.4),0 2px 8px rgba(22,30,66,.07)}
-  @keyframes orbit{to{transform:rotate(360deg)}}
-  @media(prefers-reduced-motion:reduce){.orbiter,.orbiter .ocard{animation:none}}
-  @media(max-width:820px){.sol-stage{height:420px;max-width:340px;margin-top:40px;--R:128px;--CW:92px}.sc-c{width:52%}}
+  .sol-hero{margin:34px auto 0;max-width:980px}
+  .sol-hero img{display:block;width:100%;border-radius:16px;border:1px solid #e5e1d4;
+    box-shadow:0 30px 70px -34px rgba(22,30,66,.42)}
+  @media(max-width:760px){.sol-hero{margin-top:26px}}
   @media(max-width:760px){
     .story-problem .storybg::after{background:linear-gradient(180deg,rgba(9,13,30,.9) 0%,rgba(10,15,34,.8) 45%,rgba(12,18,40,.6) 100%)}
     .story-problem{min-height:0;padding:80px 0}
@@ -463,90 +462,63 @@
       <h2 class="sec-h">バラバラだった情報が、1つのNotionに集約。</h2>
       <p class="sec-lead">全校舎の生徒・売上・退塾・コマ稼働が1か所に集まる。本部は報告を待たず、今この瞬間の数字を自分で見て判断できる。教室長任せの経営から、本部が見える経営へ。</p>
     </div>
-    <div class="sol-stage reveal" aria-hidden="true">
-      <div class="sc-c"><img src="assets/screenshots/notion/01-crm-home.png" alt=""></div>
-      <div class="orbiter" style="--delay:0s"><div class="arm"><div class="ocard"><img src="assets/screenshots/app/01-schedule.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-3s"><div class="arm"><div class="ocard"><img src="assets/screenshots/notion/02-db-students.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-6s"><div class="arm"><div class="ocard"><img src="assets/screenshots/app/04-student-scores.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-9s"><div class="arm"><div class="ocard"><img src="assets/screenshots/notion/03-db-instructors.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-12s"><div class="arm"><div class="ocard"><img src="assets/screenshots/app/05-student-invoice.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-15s"><div class="arm"><div class="ocard"><img src="assets/screenshots/notion/06-db-test-scores.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-18s"><div class="arm"><div class="ocard"><img src="assets/screenshots/app/06-instructors.png" alt=""></div></div></div>
-      <div class="orbiter" style="--delay:-21s"><div class="arm"><div class="ocard"><img src="assets/screenshots/notion/07-db-invoice.png" alt=""></div></div></div>
-    </div>
+    <figure class="sol-hero reveal"><img src="assets/after-grid.png" alt="全校舎の生徒・講師・時間割・成績・請求が1つのNotionに集約された実画面"></figure>
   </div>
 </section>
 
-<!-- ===== VALUE 01 (dark) ===== -->
+<!-- ===== VALUE（時間割アプリの3価値） ===== -->
 <section class="t-base" id="value">
   <div class="wrap">
-    <div class="value reveal">
-      <div class="value__body">
-        <span class="value__num">VALUE 01</span>
-        <h2>全校舎の今が、1画面でわかる。</h2>
-        <p class="lead">生徒数・売上・退塾率・コマ稼働率を本部でまとめて見る。報告を待たず即座に把握できる状態が、多校舎経営の最初の土台です。</p>
-        <div class="prose">
-          <p>電話やLINEで聞いて回っていた数字が、開けばそこにあります。どの校舎が伸び、どの校舎が落ちているか。並べた瞬間に、次の一手が感覚ではなく数字で決まります。</p>
-        </div>
-        <p class="note">※ 本部ダッシュボードは図解です。各校舎の生徒・講師・時間割・請求の実データは、本ページの実画面でご確認いただけます。</p>
-      </div>
-      <div class="value__media">
-        <div class="figure-box">
-          <div class="figure-tag">本部ダッシュボード（イメージ）</div>
-          <div class="kpi-grid">
-            <div class="kpi"><div class="nm">A校 生徒数</div><div class="big">182</div><div class="dl up">▲ +6</div></div>
-            <div class="kpi"><div class="nm">B校 生徒数</div><div class="big">148</div><div class="dl fl">± 0</div></div>
-            <div class="kpi"><div class="nm">C校 生徒数</div><div class="big">121</div><div class="dl dn">▼ −4</div></div>
-            <div class="kpi"><div class="nm">今月売上</div><div class="big">¥1,240<span style="font-size:12px">万</span></div><div class="dl up">▲ +5%</div></div>
-            <div class="kpi"><div class="nm">退塾</div><div class="big">3<span style="font-size:12px">名</span></div><div class="dl dn">▼ 要注意</div></div>
-            <div class="kpi"><div class="nm">コマ稼働</div><div class="big">87<span style="font-size:12px">%</span></div><div class="dl up">▲ +2</div></div>
-          </div>
-          <div class="kpi-bars"><i style="height:60%"></i><i style="height:78%"></i><i style="height:52%"></i><i style="height:88%"></i><i style="height:70%"></i><i style="height:94%"></i></div>
-          <div class="kpi-row"><span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>今月</span></div>
-        </div>
-      </div>
+    <div class="sec-head reveal" style="max-width:760px;margin:0 auto;text-align:center">
+      <span class="sec-label">THE APP</span>
+      <h2 class="sec-h" style="margin-top:14px">日々の業務を解決する、時間割作成アプリ。</h2>
+      <p class="sec-lead">Notionは情報を1つに集約するのは得意。けれど、時間割の編成や請求書の発行といった日々の業務まではカバーしきれません。Notionのデータベースをそのまま土台にした業務特化型アプリが、その「あと一歩」を解決します。</p>
     </div>
 
-    <div class="value rev reveal">
-      <div class="value__body">
-        <span class="value__num">VALUE 02</span>
-        <h2>退塾を、増える前に止める。</h2>
-        <p class="lead">退塾は突然ではありません。欠席が増える、成績が下がる、面談が途絶える。兆候は必ず数字に出ています。</p>
-        <div class="prose">
-          <p>出欠・成績・面談記録といった日々のデータから、退塾につながりそうな兆候を早い段階で拾い上げ、本部と教室長が手遅れになる前に共有できる状態を目指します。</p>
-          <p>退塾が1人増えれば、その校舎の年間売上はその分だけ減ります。辞めてから動くのではなく、辞めそうな段階で動ける。それが多校舎全体の数字を守ります。</p>
+    <div class="vstack">
+      <div class="value reveal">
+        <div class="value__body">
+          <div class="vhead"><span class="vnum">01</span><h2>時間割づくりが、ドラッグ＆ドロップで終わる。</h2></div>
+          <p class="lead">Excelのコピペと格闘していた時間割づくりを、直感的に動かせる時間割アプリに。掴んで動かすだけで、快適に組めます。</p>
+          <ul class="vlist">
+            <li><b>ドラッグ＆ドロップ編成</b>授業コマを掴んで動かすだけ。コピペや行ずれと格闘しない。</li>
+            <li><b>その場でエラー警告</b>ダブルブッキングや講師の不可時間は、組んだ瞬間に知らせる。</li>
+            <li><b>校舎が変わっても同じ操作</b>どの校舎の時間割も、同じ直感操作でストレスなく組める。</li>
+          </ul>
         </div>
-        <p class="note">※ 退塾兆候のアラートは図解です。判断材料となる成績推移は、上部の実画面でご確認いただけます。</p>
-      </div>
-      <div class="value__media">
-        <div class="figure-box">
-          <div class="figure-tag">退塾兆候の検知（イメージ）</div>
-          <div class="flowline">
-            <div class="src"><span>出欠</span><span>成績</span><span>面談記録</span></div>
-            <div class="ar">↓</div>
-            <div class="ai">データから兆候を抽出</div>
-            <div class="ar">↓</div>
-            <div class="alert"><span class="dot"></span>「木村 海斗さん ― 欠席増 × 成績下降。早めの面談を」</div>
-          </div>
+        <div class="value__media">
+          <div class="laptop"><div class="laptop__lid"><div class="laptop__screen"><img src="assets/screenshots/app/01-schedule.png" alt="時間割作成表（実画面）"></div></div><div class="laptop__base"></div></div>
         </div>
       </div>
-    </div>
 
-    <div class="value reveal">
-      <div class="value__body">
-        <span class="value__num">VALUE 03</span>
-        <h2>校舎を増やしても、崩れない。</h2>
-        <p class="lead">拡大のたびに運営がゼロから始まるなら、それは仕組みではなく属人化です。</p>
-        <div class="prose">
-          <p>出店のたびに管理がゼロから組み直しになり、新しい教室長の我流が始まる。これが拡大のたびに経営が崩れる正体です。</p>
-          <p>多校舎塾マネジメントBASEなら、回っている校舎の仕組みをそのまま複製して新校舎を立ち上げられます。教室長が代わっても、校舎が増えても、本部のガバナンスが効いたまま運営が続きます。</p>
+      <div class="value rev reveal">
+        <div class="value__body">
+          <div class="vhead"><span class="vnum">02</span><h2>請求書が、組んだ授業とそのまま紐づく。</h2></div>
+          <p class="lead">作成した時間割（授業）に請求書が紐づき、コマ数からそのまま自動で作成。Notion単体では出せない請求書をアプリが補い、ヒューマンエラーが消えます。</p>
+          <ul class="vlist">
+            <li><b>授業に紐づいて自動作成</b>組んだ授業数がそのまま請求金額に反映。月末にコマ数を数え直さない。</li>
+            <li><b>インボイス対応のPDFをワンクリック</b>制度対応の請求書を、ボタンひとつで発行。</li>
+            <li><b>ヒューマンエラーがゼロに</b>数え違い・振替の反映漏れ・転記ミスが構造的に起きない。</li>
+          </ul>
+        </div>
+        <div class="value__media">
+          <div class="laptop"><div class="laptop__lid"><div class="laptop__screen"><img src="assets/screenshots/app/05-student-invoice.png" alt="生徒情報-請求書（実画面）"></div></div><div class="laptop__base"></div></div>
         </div>
       </div>
-      <div class="value__media">
-        <figure>
-          <div class="shot"><img src="assets/screenshots/app/02-templates.png" alt="時間割テンプレート（実画面）"></div>
-          <figcaption class="media-cap">実画面 ｜ 時間割テンプレート。整った型をそのまま新校舎へ展開できる</figcaption>
-        </figure>
+
+      <div class="value reveal">
+        <div class="value__body">
+          <div class="vhead"><span class="vnum">03</span><h2>丸１日かかる時間割作成を、<span class="hl-30">３０分</span>で。</h2></div>
+          <p class="lead">夏期・冬期講習や年度替わりの組み直しは、テンプレの使い回しが効かず、講師と生徒の都合を一つずつ突き合わせるから丸１日かかる。その工程をアプリが肩代わりし、３０分に。</p>
+          <ul class="vlist">
+            <li><b>多くの条件から、ひな形を自動生成</b>講師の出勤可能日時 × 生徒の受講可能日時 × 指導可能科目を一気に参照し、成立する時間割のたたき台をつくる。</li>
+            <li><b>生徒の希望はアンケートフォームで回収</b>受講可能日時はフォームで直接回答。教室長が一件ずつ手入力しない。</li>
+            <li><b>季節講習も、年度替わりの組み直しも</b>いちばん重い工程まで、同じ仕組みで一気に。</li>
+          </ul>
+        </div>
+        <div class="value__media">
+          <div class="laptop"><div class="laptop__lid"><div class="laptop__screen"><img src="assets/screenshots/app/02-templates.png" alt="時間割テンプレート（実画面）"></div></div><div class="laptop__base"></div></div>
+        </div>
       </div>
     </div>
   </div>
