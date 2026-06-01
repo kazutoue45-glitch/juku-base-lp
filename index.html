@@ -283,34 +283,41 @@
   .why-h{font-size:clamp(26px,4.6vw,40px);line-height:1.3;margin-top:13px}
   .why-h .hl{color:var(--brand)}
   @media(min-width:860px){.why-top{margin-bottom:36px}}
-  /* comparison: よくある構築 → BASE */
-  .why-compare{display:grid;grid-template-columns:1fr;gap:13px}
-  .cmp{background:var(--panel);border-radius:14px;overflow:hidden}
-  .cmp__head{height:50px;display:flex;align-items:center;padding:0 18px;font-weight:700}
-  .cmp--plain .cmp__head{background:var(--card);color:var(--muted);font-size:14.5px}
-  .cmp--base .cmp__head{background:var(--ink);color:#fff;font-size:18px;letter-spacing:.22em;justify-content:center}
-  .cmp__row{display:flex;align-items:center;gap:12px;min-height:56px;padding:9px 18px;border-top:1px solid var(--line);font-size:14px}
-  .cmp--plain .cmp__row{color:var(--body);font-weight:600}
-  .cmp--base .cmp__row{color:var(--ink);font-weight:700}
-  .cmp-ic{flex:0 0 auto;width:32px;height:32px;border-radius:50%;display:grid;place-items:center}
-  .cmp-ic svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .cmp--plain .cmp-ic{background:var(--card);color:var(--muted)}
-  .cmp--base .cmp-ic{background:var(--ink);color:#fff}
-  .cmp-arws{display:none}
-  @media(min-width:760px){
-    .why-compare{grid-template-columns:1fr 46px 1fr;gap:0;align-items:start}
-    .cmp-arws{display:flex;flex-direction:column;padding-top:50px}
-    .cmp-arws span{height:56px;display:flex;align-items:center;justify-content:center}
-    .cmp-arws svg{width:22px;height:22px;fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.5}
+  /* WHY US — section bg + Before/After */
+  #why{background-color:var(--beige);background-image:url('assets/why-section-bg.png');background-size:cover;background-position:center;background-repeat:no-repeat}
+  .wba-compare{display:grid;grid-template-columns:1fr;gap:14px}
+  .wba{border-radius:16px;overflow:hidden}
+  .wba--before{background:var(--panel-2)}
+  .wba--after{background:var(--panel)}
+  .wba__head{height:56px;display:flex;align-items:center;gap:11px;padding:0 22px}
+  .wba__head .t{font-size:21px;font-weight:800;letter-spacing:.03em;line-height:1}
+  .wba__head .s{font-size:12.5px;font-weight:600;line-height:1.3}
+  .wba--before .wba__head{background:linear-gradient(100deg,#565d70,#878ea1)}
+  .wba--before .wba__head .t{color:#fff}
+  .wba--before .wba__head .s{color:rgba(255,255,255,.85)}
+  .wba--after .wba__head{background:linear-gradient(100deg,#161e3b,#2b3768)}
+  .wba--after .wba__head .t{color:#E6B968}
+  .wba--after .wba__head .s{color:#fff}
+  .wba__row{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:start;padding:12px 20px;min-height:100px}
+  .wba__ic{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+  .wba__ic .c{width:46px;height:46px;border-radius:50%;display:grid;place-items:center}
+  .wba__ic .c svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .wba__ic .lbl{font-size:10px;font-weight:600;line-height:1.25}
+  .wba--before .wba__ic .c{background:#e6e4db;color:#5b6175}
+  .wba--before .wba__ic .lbl{color:var(--muted)}
+  .wba--after .wba__ic .c{background:var(--ink);color:#fff}
+  .wba__tx{min-width:0}
+  .wba__tx h4{font-size:15.5px;font-weight:700;line-height:1.45;color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
+  .wba__tx p{margin-top:6px;font-size:12.5px;line-height:1.7;color:var(--body)}
+  .wba-arws{display:none}
+  @media(min-width:920px){
+    .wba-compare{grid-template-columns:1fr 50px 1fr;gap:0;align-items:start}
+    .wba-arws{display:flex;flex-direction:column;padding-top:56px}
+    .wba-arws span{height:100px;display:flex;align-items:center;justify-content:center}
+    .wba-arws svg{width:20px;height:20px;fill:var(--gold);opacity:.9}
   }
-  /* WHY US — 3 cards */
-  .why-cards{margin-top:14px;display:grid;gap:13px}
-  .wcard{background:var(--panel-2);border-radius:14px;padding:24px 22px}
-  .wcard__ic{width:48px;height:48px;border-radius:50%;background:var(--panel);display:grid;place-items:center;color:var(--ink);margin-bottom:15px}
-  .wcard__ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .wcard h3{font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;letter-spacing:-.01em;text-wrap:balance}
-  .wcard p{margin-top:10px;font-size:13px;color:var(--body);line-height:1.78}
-  @media(min-width:760px){.why-cards{grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}}
+  /* WHY US — DB shots note spacing */
+  .why-shots{margin-top:20px}
   .why-shots{margin-top:22px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
   .why-shots figcaption{margin-top:9px;font-size:11px;color:var(--muted);text-align:center}
   @media(min-width:760px){.why-shots{grid-template-columns:repeat(3,1fr)}}
@@ -540,52 +547,53 @@
       </div>
     </div>
 
-    <div class="why-compare reveal">
-      <div class="cmp cmp--plain">
-        <div class="cmp__head">よくある構築</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M14.6 6.3a4 4 0 0 0-5.3 5.3L3 18l3 3 6.4-6.3a4 4 0 0 0 5.3-5.3l-2.8 2.8-2.4-.6-.6-2.4 2.8-2.8z"/></svg></span>ツールを整えて終わる</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.3"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.3"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.3"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.3"/></svg></span>汎用的な構成</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8.5 21h7M12 17v4"/></svg></span>画面中心の提案</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.8"/><ellipse cx="12" cy="12" rx="10" ry="4.4"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(120 12 12)"/></svg></span>きれいだが定着しない</div>
+    <div class="wba-compare reveal">
+      <div class="wba wba--before">
+        <div class="wba__head"><span class="t">Before</span><span class="s">人の頑張りで回っている状態</span></div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="1.8"/><path d="M3.5 9.2h17M9 9.2v10.3M14.5 9.2v10.3"/></svg></span><span class="lbl">Excel管理</span></div>
+          <div class="wba__tx"><h4>Excelが校舎ごとにバラバラ</h4><p>校舎ごとに管理表の形式が違い、生徒情報・講師情報・請求情報の見方が統一されていない。</p></div>
+        </div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="14.5" height="15" rx="1.8"/><path d="M3 9h14.5M7 3v3M14 3v3"/><circle cx="17" cy="16" r="4.3"/><path d="M17 14v2l1.4.9"/></svg></span><span class="lbl">時間割作成</span></div>
+          <div class="wba__tx"><h4>時間割作成が教室長の経験に依存</h4><p>講師の担当科目や生徒の来塾可能時間を、教室長の記憶と経験で判断している。</p></div>
+        </div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><path d="M5.5 3h13v18l-2.2-1.5-2.1 1.5-2.2-1.5-2.1 1.5-2.2-1.5L5.5 21z"/><path d="M9 8.5h6M9 12h6"/></svg></span><span class="lbl">請求確認</span></div>
+          <div class="wba__tx"><h4>授業数と請求確認がつながっていない</h4><p>授業数、振替、講習、請求金額の確認が別々で、請求前に人力で確認する必要がある。</p></div>
+        </div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20v-1.6a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5V20"/></svg></span><span class="lbl">生徒対応・引き継ぎ</span></div>
+          <div class="wba__tx"><h4>生徒対応の履歴が人の頭に残る</h4><p>保護者連絡、面談内容、退塾の兆候、注意点が担当者の記憶に残りがち。</p></div>
+        </div>
       </div>
-      <div class="cmp-arws" aria-hidden="true">
-        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        <span><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      <div class="wba-arws" aria-hidden="true">
+        <span><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
+        <span><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></span>
       </div>
-      <div class="cmp cmp--base">
-        <div class="cmp__head">BASE</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>運用まで見据える</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M16 20v-1.6a3.6 3.6 0 0 0-3.6-3.6H6.6A3.6 3.6 0 0 0 3 18.4V20"/><circle cx="9.5" cy="7.5" r="3.6"/><path d="M21 20v-1.6a3.6 3.6 0 0 0-2.7-3.5M15.5 4.1a3.6 3.6 0 0 1 0 6.8"/></svg></span>塾の実務に合わせる</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="5" rx="1.2"/><rect x="2.5" y="16.5" width="6" height="5" rx="1.2"/><rect x="15.5" y="16.5" width="6" height="5" rx="1.2"/><path d="M12 7.5v4M5.5 16.5v-5h13v5"/></svg></span>業務フローから設計</div>
-        <div class="cmp__row"><span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 0 1 14.5-6L20.5 8.5M20.5 4v4.5H16"/><path d="M20.5 12a8.5 8.5 0 0 1-14.5 6L3.5 15.5M3.5 20v-4.5H8"/></svg></span>現場で使い続けられる</div>
+      <div class="wba wba--after">
+        <div class="wba__head"><span class="t">After</span><span class="s">BASEで仕組み化された状態</span></div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8.5 21h7M12 17v4"/><path d="M8.8 10.4l2.1 2.1 4.3-4.5"/></svg></span></div>
+          <div class="wba__tx"><h4>校舎をまたいで、同じ基準で見える</h4><p>生徒情報・講師情報・請求情報を同じ基準で管理。校舎ごとの状況を本部が同じ視点で確認できる。</p></div>
+        </div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="1.8"/><path d="M3.5 9.2h17M8 3v3M16 3v3"/><path d="M8.4 14l2.2 2.2 4.6-4.8"/></svg></span></div>
+          <div class="wba__tx"><h4>条件を見ながら、誰でも組みやすい</h4><p>講師の担当科目・出勤可能時間・生徒の来塾可能時間を整理し、判断しやすい状態をつくる。</p></div>
+        </div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><path d="M5.5 3h13v18l-2.2-1.5-2.1 1.5-2.2-1.5-2.1 1.5-2.2-1.5L5.5 21z"/><path d="M9 9.5l1.8 1.8 3.8-4"/></svg></span></div>
+          <div class="wba__tx"><h4>授業数と請求情報をつなげて確認</h4><p>時間割・授業記録・請求情報をつなげて管理し、請求漏れ・確認漏れを減らせる。</p></div>
+        </div>
+        <div class="wba__row">
+          <div class="wba__ic"><span class="c"><svg viewBox="0 0 24 24"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/><path d="M2.5 19.5v-1.2A3.8 3.8 0 0 1 6.3 14.5h3.4M14.3 14.5h3.4a3.8 3.8 0 0 1 3.8 3.8v1.2"/></svg></span></div>
+          <div class="wba__tx"><h4>対応履歴が残り、引き継ぎに使える</h4><p>生徒ごとの面談履歴、保護者対応、注意点を記録し、本部や別担当者も経緯を追える。</p></div>
+        </div>
       </div>
     </div>
 
-    <div class="why-cards reveal">
-      <div class="wcard">
-        <div class="wcard__ic"><svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2.2"/><path d="M9 4.5V3.2A1.2 1.2 0 0 1 10.2 2h3.6A1.2 1.2 0 0 1 15 3.2V4.5"/><circle cx="12" cy="13.2" r="3.4"/><path d="M12 11.4v1.8l1.3 1"/></svg></div>
-        <h3>塾の実務を前提に設計する</h3>
-        <p>生徒情報や講師情報を整えるだけでは、塾の管理は回りません。時間割、請求、面談、講師配置、校舎ごとの状況確認まで、実際の塾運営の流れに沿って設計します。</p>
-      </div>
-      <div class="wcard">
-        <div class="wcard__ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.3"/><path d="M3 20v-1.4A4.6 4.6 0 0 1 7.6 14h2.8a4.6 4.6 0 0 1 3.1 1.2"/><path d="M14.8 13.6l1.9 1.9 3.5-3.9"/></svg></div>
-        <h3>現場で使い続けられることを優先する</h3>
-        <p>見た目が整っていても、現場で入力されず、更新されず、使われなければ意味がありません。多校舎塾マネジメントBASEは、現場が使い続けられることを前提に、運用まで見据えて組み上げます。</p>
-      </div>
-      <div class="wcard">
-        <div class="wcard__ic"><svg viewBox="0 0 24 24"><path d="M4 21h16M5.5 21V9.5L12 6l6.5 3.5V21M9.5 21v-4.5h5V21"/><path d="M12 6V3M12 3l3 1"/></svg></div>
-        <h3>塾ごとの運営に合わせて仕組み化できる</h3>
-        <p>塾によって、校舎体制も、講師配置も、請求の流れも違います。既存の枠をそのまま当てはめるのではなく、今の運営をもとに、必要な仕組みを整理して設計します。</p>
-      </div>
-    </div>
-    <div class="why-shots reveal">
-      <figure><div class="shot shot--crop"><img src="assets/screenshots/notion/02-db-students.png" alt="生徒情報データベース"></div><figcaption>生徒情報DB</figcaption></figure>
-      <figure><div class="shot shot--crop"><img src="assets/screenshots/notion/03-db-instructors.png" alt="講師情報データベース"></div><figcaption>講師情報DB</figcaption></figure>
-      <figure><div class="shot shot--crop"><img src="assets/screenshots/notion/07-db-invoice.png" alt="請求明細データベース"></div><figcaption>請求明細DB</figcaption></figure>
-    </div>
-    <p class="note reveal" style="text-align:center;margin-top:18px">塾の業務に合わせて組まれたデータベース群。解約後もデータは御塾のNotionに残り続けます。</p>
   </div>
 </section>
 
