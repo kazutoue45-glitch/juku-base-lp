@@ -20,7 +20,7 @@
     --line:rgba(255,255,255,.11); --line-2:rgba(255,255,255,.17);
     --ink:#F5F7FF; --body:#C4CAE2; --muted:#929AB8; --faint:#737B9C;
     --brand:#6E78F0; --brand-2:#9A6BF0; --brand-soft:#AEB6FF;
-    --gold:#E6B968; --beige:#E8E6DD;
+    --gold:#E6B968; --beige:#F0EEE7;
     --r:16px; --r-sm:11px; --wrap:1160px;
     --font:"Inter","Noto Sans JP",sans-serif;
   }
@@ -53,10 +53,10 @@
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;
     border-radius:12px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;cursor:pointer;
     font-family:var(--font);white-space:nowrap}
-  .btn-primary{color:#fff;padding:16px 30px;font-size:15.5px;
-    background:linear-gradient(120deg,var(--brand) 0%,var(--brand-2) 100%);
-    box-shadow:0 10px 30px rgba(110,120,240,.4),inset 0 1px 0 rgba(255,255,255,.24)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 42px rgba(110,120,240,.52),inset 0 1px 0 rgba(255,255,255,.28)}
+  .btn-primary{color:#fff;padding:16px 30px;font-size:15.5px;border:.5px solid rgba(255,255,255,.42);
+    background:linear-gradient(180deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,.07) 42%,transparent 66%),linear-gradient(120deg,var(--brand) 0%,var(--brand-2) 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 7px rgba(36,40,104,.36),inset 0 0 0 .5px rgba(255,255,255,.16),0 10px 30px rgba(110,120,240,.42),0 2px 6px rgba(40,46,120,.26)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.72),inset 0 -2px 7px rgba(36,40,104,.4),inset 0 0 0 .5px rgba(255,255,255,.22),0 16px 44px rgba(110,120,240,.54),0 3px 8px rgba(40,46,120,.3)}
   .btn-primary .arw{transition:transform .2s ease}
   .btn-primary:hover .arw{transform:translateX(3px)}
   .btn-ghost{color:var(--ink);padding:10px 18px;font-size:13.5px;font-weight:600;
@@ -72,7 +72,7 @@
   .logo .mk{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:14px;font-weight:800;color:#fff;
     background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 4px 14px rgba(110,120,240,.55)}
   .logo .mk-txt{font-size:14.5px}
-  .logo .logo-ic{width:36px;height:36px;flex:0 0 auto;display:block}
+  .logo .logo-ic{width:36px;height:36px;flex:0 0 auto;display:block;filter:brightness(.8) saturate(1.12)}
   .hd-r{display:flex;align-items:center;gap:14px}
   .nav{display:none;gap:28px;font-size:13.5px;font-weight:500;color:var(--body)}
   .nav a:hover{color:var(--ink)}
@@ -93,9 +93,7 @@
   .hero-deco{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
   .hero-deco svg{position:absolute;right:-3%;top:0;width:78%;height:100%;color:#c2cbe4;opacity:.63;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%)}
-  .hero-band{position:relative;z-index:1;width:100%;margin-top:clamp(24px,3.4vw,44px);line-height:0;pointer-events:none;user-select:none}
-  .hero-band svg{display:block;width:100%;height:auto;overflow:visible}
-  .hero-band text{font-family:var(--font);font-size:56px;font-weight:800;letter-spacing:-.012em;fill:rgba(212,219,236,.16)}
+  .hero-band{margin-top:15px;font-family:var(--font);font-weight:700;font-size:clamp(14px,1.7vw,18px);letter-spacing:.005em;line-height:1.5;color:rgba(210,218,238,.72)}
   .hero .wrap{position:relative;z-index:2}
   .hero-grid{display:grid;gap:40px;align-items:center}
   .hero-copy{text-align:left}
@@ -270,9 +268,12 @@
   .story-problem .p-close{margin-top:24px}
   .story-solution{padding:86px 0 94px;background:var(--beige)}
   .story-solution .story-text{max-width:700px;margin:0 auto;text-align:center}
-  .sol-hero{margin:34px auto 0;max-width:980px}
-  .sol-hero img{display:block;width:100%;border-radius:16px;border:1px solid #e5e1d4;
-    box-shadow:0 30px 70px -34px rgba(22,30,66,.42)}
+  .sol-hero{margin:34px auto 0;max-width:980px;padding:12px;border-radius:24px;
+    background:rgba(255,255,255,.24);backdrop-filter:blur(18px) saturate(155%);-webkit-backdrop-filter:blur(18px) saturate(155%);
+    border:.5px solid rgba(255,255,255,.6);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.22),inset 0 0 0 .5px rgba(255,255,255,.4),0 8px 32px rgba(30,34,66,.16)}
+  .sol-hero img{display:block;width:100%;border-radius:12px;border:.5px solid rgba(255,255,255,.5);
+    box-shadow:0 8px 24px -14px rgba(22,30,66,.32)}
   @media(max-width:760px){.sol-hero{margin-top:26px}}
   @media(max-width:760px){
     .story-problem .storybg::after{background:linear-gradient(180deg,rgba(9,13,30,.9) 0%,rgba(10,15,34,.8) 45%,rgba(12,18,40,.6) 100%)}
@@ -351,9 +352,9 @@
   /* founder */
   .founder{display:grid;gap:32px;align-items:stretch}
   .founder__visual{display:flex;flex-direction:column;align-items:center;gap:22px}
-  .founder__logo{width:min(62%,200px);height:auto;display:block}
+  .founder__logo{width:min(62%,200px);height:auto;display:block;filter:drop-shadow(0 12px 26px rgba(30,34,56,.18))}
   .founder__badges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 auto;width:100%;max-width:440px}
-  .founder__badges .fb{background:rgba(255,255,255,.36);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.9);border-radius:14px;padding:15px 8px 13px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 16px 34px -20px rgba(30,34,56,.24)}
+  .founder__badges .fb{background:linear-gradient(180deg,rgba(255,255,255,.68) 0%,rgba(255,255,255,.14) 38%,rgba(255,255,255,.32) 100%),rgba(255,255,255,.16);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:.5px solid rgba(255,255,255,.78);border-radius:16px;padding:15px 8px 13px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 1px rgba(255,255,255,.45),inset 0 0 0 .5px rgba(255,255,255,.5),0 10px 30px -15px rgba(30,34,56,.26),0 2px 6px rgba(30,34,56,.08)}
   .founder__badges .fb img{width:40px;height:40px;object-fit:contain;border-radius:9px;display:block;margin:0 auto 9px;box-shadow:0 3px 9px rgba(30,34,56,.14)}
   .founder__badges .fb .nm{font-size:10px;font-weight:700;color:var(--ink);line-height:1.4;min-height:2.8em}
   .founder__badges .fb .st{margin-top:6px;font-size:9px;font-weight:700;color:var(--gold)}
@@ -400,13 +401,22 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 
-  /* ===== Liquid Glass（全体の面に半透明ガラス質感） ===== */
-  header{background:rgba(15,22,48,.42);backdrop-filter:blur(16px) saturate(155%);-webkit-backdrop-filter:blur(16px) saturate(155%)}
-  header.scrolled{background:rgba(15,22,48,.7)}
-  /* 暗いセクションのガラスカード（ネイビー地に白の磨りガラス） */
-  .step,.qa,.kpi{background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(185%);-webkit-backdrop-filter:blur(24px) saturate(185%);border:1px solid rgba(255,255,255,.26);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.04),0 26px 50px -26px rgba(0,0,0,.6)}
-  /* 明るいセクションのガラスパネル（ベージュ地に白の磨りガラス） */
-  .ba__col,.wba--before,.wba--after{background:rgba(255,255,255,.28);backdrop-filter:blur(24px) saturate(165%);-webkit-backdrop-filter:blur(24px) saturate(165%);border:1px solid rgba(255,255,255,.78);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 24px 50px -28px rgba(30,34,56,.26)}
+  /* ===== Liquid Glass（Apple Liquid Glass 再現仕様：レンジング/鏡面/屈折・blur≤20px） ===== */
+  header{background:rgba(15,22,48,.42);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%)}
+  header.scrolled{background:rgba(15,22,48,.66);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),inset 0 -1px 0 rgba(255,255,255,.05)}
+  /* 暗いセクションのガラスカード（ネイビー地：明るめtint＋レンジング） */
+  .step,.qa,.kpi{background:rgba(255,255,255,.12);backdrop-filter:blur(18px) saturate(165%);-webkit-backdrop-filter:blur(18px) saturate(165%);border:.5px solid rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.1),inset 0 0 0 .5px rgba(255,255,255,.22),0 8px 32px rgba(0,0,0,.22);transition:background .3s ease,box-shadow .3s ease}
+  .step:hover,.qa:hover{background:rgba(255,255,255,.17);box-shadow:inset 0 1px 0 rgba(255,255,255,.72),inset 0 0 14px rgba(255,255,255,.2),0 12px 40px rgba(0,0,0,.28)}
+  /* 明るいセクションのガラスパネル（ベージュ地：白の磨りガラス＋レンジング） */
+  .ba__col,.wba--before,.wba--after{background:rgba(255,255,255,.24);backdrop-filter:blur(18px) saturate(155%);-webkit-backdrop-filter:blur(18px) saturate(155%);border:.5px solid rgba(255,255,255,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.22),inset 0 0 0 .5px rgba(255,255,255,.4),0 8px 32px rgba(30,34,56,.14)}
+  /* アクセシビリティ：透明度低減・モーション低減・高コントラスト */
+  @media(prefers-reduced-transparency:reduce){
+    header,header.scrolled{background:rgba(13,19,40,.97);backdrop-filter:none;-webkit-backdrop-filter:none}
+    .step,.qa,.kpi{background:#27325C;backdrop-filter:none;-webkit-backdrop-filter:none}
+    .ba__col,.wba--before,.wba--after,.founder__badges .fb,.sol-hero{background:#FBFBF8;backdrop-filter:none;-webkit-backdrop-filter:none}
+  }
+  @media(prefers-reduced-motion:reduce){.step,.qa{transition:none}}
+  @media(prefers-contrast:more){.step,.qa,.kpi{border-color:rgba(255,255,255,.42)}.ba__col,.wba--before,.wba--after{border-color:rgba(30,34,56,.4)}}
 </style>
 </head>
 <body>
@@ -434,6 +444,7 @@
       <div class="hero-copy">
         <span class="eyebrow">多校舎塾マネジメントBASE</span>
         <h1><span class="l1">教室長任せの多校舎運営に</span><br><span class="l2">限界を感じている<span class="nb">塾オーナーへ。</span></span></h1>
+        <p class="hero-band">Notion経営基盤 × 専用アプリ業務基盤</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact">無料で経営診断する <span class="arw">→</span></a>
           <p class="reassure">オンライン30分。現状を伺うだけでも構いません。</p>
@@ -449,7 +460,6 @@
       </div>
     </div>
   </div>
-  <div class="hero-band"><svg viewBox="0 0 1000 80" preserveAspectRatio="xMidYMid meet"><text x="500" y="58" text-anchor="middle" textLength="1000" lengthAdjust="spacingAndGlyphs">Notion経営基盤 × 専用アプリ業務基盤</text></svg></div>
 </section>
 
 <!-- ===== FV直下 マーキー ===== -->
