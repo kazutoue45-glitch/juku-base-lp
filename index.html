@@ -336,7 +336,9 @@
     background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px rgba(110,120,240,.45)}
   .step h3{font-size:16px;color:var(--ink);font-weight:700;text-wrap:balance}
   .step p{margin-top:7px;font-size:13.5px;color:var(--body);line-height:1.75}
-  @media(min-width:600px){.steps{grid-template-columns:1fr 1fr;gap:18px}}
+  .flow-assure{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .flow-assure span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--brand-soft);background:rgba(110,120,240,.12);border:1px solid rgba(110,120,240,.28);border-radius:999px;padding:8px 15px}
+  .flow-assure span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px 1px rgba(230,185,104,.7)}  @media(min-width:600px){.steps{grid-template-columns:1fr 1fr;gap:18px}}
   @media(min-width:960px){
     .steps{grid-template-columns:repeat(4,1fr);gap:16px}
     .step{flex-direction:column;align-items:flex-start;gap:13px;padding:24px 20px}
@@ -613,13 +615,14 @@
     <div class="sec-head reveal">
       <span class="sec-label">THE FLOW</span>
       <h2 class="sec-h" style="margin-top:14px">導入は、無理のない順番で。</h2>
-      <p class="sec-lead">今の管理を全部入れ替える必要はありません。まずは現状を伺うところから始めます。</p>
+      <p class="sec-lead">今の管理をすべて入れ替える必要はありません。まずは現状を整理し、必要な情報から仕組み化。1校舎で試してから、全校舎へ無理なく広げていきます。</p>
+      <div class="flow-assure"><span>いきなり全校舎導入しない</span><span>既存Excelを活かせる</span><span>1校舎から試せる</span></div>
     </div>
     <div class="steps reveal">
-      <div class="step"><span class="step__ic"><img src="assets/flow-1.png" alt="" loading="lazy"></span><span class="n">1</span><div><h3>無料経営診断（オンライン30分）</h3><p>現在の校舎数・運営体制・困っていること、本部が見たい数字をうかがいます。今の仕組みのどこが崩れやすいかを一緒に整理します。</p></div></div>
-      <div class="step"><span class="step__ic"><img src="assets/flow-2.png" alt="" loading="lazy"></span><span class="n">2</span><div><h3>設計のご提案とカスタマイズ</h3><p>御塾の業務に合わせてNotionを設計します。どの校舎の、どの数字を本部で見たいか。優先順位を一緒に決めます。</p></div></div>
-      <div class="step"><span class="step__ic"><img src="assets/flow-3.png" alt="" loading="lazy"></span><span class="n">3</span><div><h3>構築・データ移行</h3><p>既存のExcelや管理表から、生徒・講師・売上の必要なデータを引き継ぎながら移します。ゼロからの入力し直しにはなりません。</p></div></div>
-      <div class="step"><span class="step__ic"><img src="assets/flow-4.png" alt="" loading="lazy"></span><span class="n">4</span><div><h3>運用開始と全校舎への展開</h3><p>まず1校舎で動かし、型が固まったら他校舎へコピー展開。本部が全体を見る運用に移行します。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-1.png" alt="" loading="lazy"></span><span class="n">1</span><div><h3>無料経営診断（30分・オンライン）</h3><p>現在の校舎数、管理方法、時間割作成、請求確認、生徒情報の共有状況を伺います。今の仕組みのどこに手間や属人化があるかを一緒に整理します。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-2.png" alt="" loading="lazy"></span><span class="n">2</span><div><h3>管理基盤の設計とカスタマイズ</h3><p>どの情報をNotionで管理し、どの業務をアプリで補うかを整理します。校舎別の数字、生徒情報、講師情報、請求、時間割をどの順番で整えるかまで設計します。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-3.png" alt="" loading="lazy"></span><span class="n">3</span><div><h3>構築・既存データの移行</h3><p>既存のExcelや管理表をもとに、生徒・講師・請求情報を移行します。使えるデータは活かし、必要な項目を整理しながら、ゼロから入力し直さなくてよい形をつくります。</p></div></div>
+      <div class="step"><span class="step__ic"><img src="assets/flow-4.png" alt="" loading="lazy"></span><span class="n">4</span><div><h3>1校舎で試し、全校舎へ展開</h3><p>まずは1校舎で運用を始め、入力方法や確認フローを調整します。型が固まってから他校舎へ展開するため、現場に無理な負担をかけずに移行できます。</p></div></div>
     </div>
   </div>
 </section>
