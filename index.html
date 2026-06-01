@@ -38,14 +38,14 @@
   .sec-label{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--brand-soft);text-transform:uppercase}
 
   /* dark / light section schemes */
-  .t-base{background:var(--bg)}
-  .t-deep{background:var(--bg-deep)}
+  .t-base{background:radial-gradient(100% 80% at 88% -8%,rgba(120,130,255,.30),transparent 58%),radial-gradient(90% 70% at -2% 104%,rgba(160,110,245,.22),transparent 62%),radial-gradient(70% 60% at 50% 50%,rgba(90,150,240,.08),transparent 70%),var(--bg)}
+  .t-deep{background:radial-gradient(120% 90% at 50% -14%,rgba(130,124,255,.30),transparent 60%),radial-gradient(80% 65% at 98% 112%,rgba(96,128,255,.22),transparent 58%),radial-gradient(80% 62% at 14% 112%,rgba(150,110,245,.16),transparent 62%),var(--bg-deep)}
   .s-light{
     --panel:#FBFBF8; --panel-2:#F1F0EB; --card:#EDECE4;
     --ink:#1B2342; --body:#4B5066; --muted:#7C808F; --faint:#9A9DAB;
     --line:rgba(30,34,56,.12); --line-2:rgba(30,34,56,.19);
     --brand-soft:#5A5FB8; --gold:#A98A3C;
-    background:var(--beige);color:var(--body)}
+    background:radial-gradient(95% 75% at 84% -6%,rgba(110,120,240,.16),transparent 58%),radial-gradient(80% 70% at 0% 108%,rgba(230,185,104,.19),transparent 64%),var(--beige);color:var(--body)}
   .s-light .note{color:#8A90A6}
   .s-light .shot{box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 26px 54px -30px rgba(22,30,66,.45),0 0 0 1px rgba(22,30,66,.08)}
 
@@ -82,13 +82,14 @@
   /* ---------- HERO (left copy / right laptop) ---------- */
   .hero{position:relative;overflow:hidden;padding:60px 0 22px;
     background:
-      linear-gradient(90deg,rgba(8,11,24,.84) 0%,rgba(8,11,24,.44) 38%,rgba(8,11,24,0) 70%),
-      radial-gradient(120% 125% at 94% 114%,rgba(5,8,20,.82),transparent 56%),
-      radial-gradient(100% 90% at 80% -6%,rgba(122,134,255,.14),transparent 55%),
-      linear-gradient(180deg,rgba(22,30,62,.28) 0%,rgba(9,14,30,.52) 100%),
+      linear-gradient(90deg,rgba(8,11,24,.58) 0%,rgba(8,11,24,.2) 42%,transparent 70%),
+      radial-gradient(120% 120% at 94% 112%,rgba(5,8,20,.28),transparent 60%),
+      radial-gradient(115% 100% at 78% -10%,rgba(124,136,255,.32),transparent 58%),
+      radial-gradient(85% 75% at 8% 2%,rgba(154,107,240,.2),transparent 62%),
+      linear-gradient(180deg,rgba(22,30,62,.12) 0%,rgba(9,14,30,.34) 100%),
       #0b1124 url('assets/fv-bg-a.png') center center / cover no-repeat}
   .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(135% 130% at 50% 42%,transparent 50%,rgba(4,7,18,.55) 100%)}
+    background:radial-gradient(150% 150% at 50% 48%,transparent 72%,rgba(4,7,18,.18) 100%)}
   .hero-deco{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
   .hero-deco svg{position:absolute;right:-3%;top:0;width:78%;height:100%;color:#c2cbe4;opacity:.63;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 26%,#000 100%)}
@@ -348,16 +349,19 @@
   }
 
   /* founder */
-  .founder{display:grid;gap:32px;align-items:center}
-  .founder__visual{border:1px solid var(--line);border-radius:20px;
-    background:radial-gradient(120% 120% at 30% 0%,rgba(110,120,240,.16),transparent 60%),var(--panel);
-    padding:44px 30px;text-align:center}
-  .founder__mono{width:84px;height:84px;margin:0 auto 18px;border-radius:22px;display:grid;place-items:center;
-    font-size:34px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));
-    box-shadow:0 14px 40px rgba(110,120,240,.45)}
+  .founder{display:grid;gap:32px;align-items:stretch}
+  .founder__visual{display:flex;flex-direction:column;align-items:center;gap:22px}
+  .founder__logo{width:min(62%,200px);height:auto;display:block}
+  .founder__badges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 auto;width:100%;max-width:440px}
+  .founder__badges .fb{background:rgba(255,255,255,.36);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.9);border-radius:14px;padding:15px 8px 13px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 16px 34px -20px rgba(30,34,56,.24)}
+  .founder__badges .fb img{width:40px;height:40px;object-fit:contain;border-radius:9px;display:block;margin:0 auto 9px;box-shadow:0 3px 9px rgba(30,34,56,.14)}
+  .founder__badges .fb .nm{font-size:10px;font-weight:700;color:var(--ink);line-height:1.4;min-height:2.8em}
+  .founder__badges .fb .st{margin-top:6px;font-size:9px;font-weight:700;color:var(--gold)}
+  .founder__badges .fb .st.challenging{color:var(--muted)}
+  @media(max-width:480px){.founder__badges{gap:7px;max-width:none}.founder__badges .fb{padding:13px 5px 11px}.founder__badges .fb img{width:36px;height:36px}.founder__badges .fb .nm{font-size:9px;min-height:3.4em}.founder__badges .fb .st{font-size:8.5px}}
   .founder__visual .role{font-size:13px;color:var(--brand-soft);font-weight:600}
   .founder__visual .role2{font-size:12px;color:var(--muted);margin-top:6px}
-  @media(min-width:860px){.founder{grid-template-columns:.85fr 1.15fr;gap:52px}}
+  @media(min-width:860px){.founder{grid-template-columns:.85fr 1.15fr;gap:52px}.founder__visual{justify-content:space-between;gap:0}}
 
   /* faq */
   .faq{margin-top:38px;display:grid;gap:14px}
@@ -395,6 +399,14 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
+
+  /* ===== Liquid Glass（全体の面に半透明ガラス質感） ===== */
+  header{background:rgba(15,22,48,.42);backdrop-filter:blur(16px) saturate(155%);-webkit-backdrop-filter:blur(16px) saturate(155%)}
+  header.scrolled{background:rgba(15,22,48,.7)}
+  /* 暗いセクションのガラスカード（ネイビー地に白の磨りガラス） */
+  .step,.qa,.kpi{background:rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(185%);-webkit-backdrop-filter:blur(24px) saturate(185%);border:1px solid rgba(255,255,255,.26);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.04),0 26px 50px -26px rgba(0,0,0,.6)}
+  /* 明るいセクションのガラスパネル（ベージュ地に白の磨りガラス） */
+  .ba__col,.wba--before,.wba--after{background:rgba(255,255,255,.28);backdrop-filter:blur(24px) saturate(165%);-webkit-backdrop-filter:blur(24px) saturate(165%);border:1px solid rgba(255,255,255,.78);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 24px 50px -28px rgba(30,34,56,.26)}
 </style>
 </head>
 <body>
@@ -632,17 +644,21 @@
   <div class="wrap">
     <div class="founder reveal">
       <div class="founder__visual">
-        <div class="founder__mono">塾</div>
-        <div class="role">現役の学習塾講師 × Notion構築の専門家</div>
-        <div class="role2">設計する人が、現場に立っている。</div>
+        <img class="founder__logo" src="assets/logo-square.png" alt="多校舎塾マネジメントBASE ロゴ" loading="lazy">
+        <div class="founder__badges">
+          <div class="fb"><img src="assets/badges/badge-essentials.png" alt="Notion基礎バッジ" loading="lazy"><div class="nm">Notion基礎バッジ</div><div class="st">取得済み ✓</div></div>
+          <div class="fb"><img src="assets/badges/badge-settings.png" alt="Notionワークフローバッジ" loading="lazy"><div class="nm">Notionワークフローバッジ</div><div class="st">取得済み ✓</div></div>
+          <div class="fb"><img src="assets/badges/badge-advanced.png" alt="Notion上級バッジ" loading="lazy"><div class="nm">Notion上級バッジ</div><div class="st">取得済み ✓</div></div>
+          <div class="fb"><img src="assets/badges/badge-admin.png" alt="Notion管理者認定" loading="lazy"><div class="nm">Notion管理者認定</div><div class="st challenging">挑戦中</div></div>
+        </div>
       </div>
       <div class="founder__body">
         <span class="sec-label">WHO WE ARE</span>
-        <h2 class="sec-h" style="margin-top:14px;font-size:26px">現役の塾講師が、塾のためにつくっています。</h2>
-        <p class="sec-lead">塾の現場を知らない開発会社が作ったツールではありません。実際に教壇に立つ人間が、自塾の課題を解くために組み上げた仕組みです。</p>
+        <h2 class="sec-h" style="margin-top:14px">塾の現場を知っているから、<br>現場で回る仕組みにできる。</h2>
+        <p class="sec-lead">多校舎塾マネジメントBASEは、実際の塾運営で起きる生徒対応・講師管理・保護者対応・時間割作成・請求確認の流れをもとに設計しています。</p>
         <div class="prose" style="margin-top:16px">
-          <p>だから「出欠と成績と面談がどうつながると退塾が見えるのか」「教室長が本当に毎日使える形は何か」を、現場の言葉で理解しています。</p>
-          <p>汎用テンプレートの押し付けではなく、御塾の運用に合わせて土台をオーダーメイドで設計します。多校舎の経営を任せる相手として、現場が分かっている人間が作ったか。ここを一番見ていただきたい点です。</p>
+          <p>欠席、成績、面談履歴、講師との相性。それぞれの情報がバラバラだと、現場の違和感は見えにくくなります。</p>
+          <p>多校舎塾マネジメントBASEは、貴塾の運用に合わせて情報をつなぎ、現場が使い続けられ、本部が判断に使える管理基盤をつくります。</p>
         </div>
       </div>
     </div>
