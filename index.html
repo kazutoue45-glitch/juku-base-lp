@@ -132,6 +132,8 @@
     border-radius:0 0 11px 11px;box-shadow:0 18px 28px rgba(0,0,0,.4)}
   .laptop__base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
     width:15%;height:5px;background:linear-gradient(180deg,#9097a2,#6d747f);border-radius:0 0 7px 7px}
+  /* モバイル：台座(114%幅)が画面端で見切れないよう筐体を少し小さく */
+  @media(max-width:760px){ .laptop{width:87%} }
 
   /* screenshot frame */
   .shot{position:relative;border-radius:14px;overflow:hidden;background:#fff;
@@ -275,7 +277,7 @@
   .sc{position:absolute;border-radius:11px;overflow:hidden;background:#fff;
     border:.5px solid rgba(22,30,66,.10);
     box-shadow:0 34px 64px -30px rgba(22,30,66,.55),0 0 0 .5px rgba(22,30,66,.05),0 2px 6px rgba(22,30,66,.10);
-    transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease}
+    transition:transform .8s cubic-bezier(.22,.61,.36,1),box-shadow .8s ease}
   .sc img{width:100%;height:auto;display:block}
   /* 各カードの配置（left / top / width / rotate） */
   .sc--a{left:1.5%;top:5%;width:21.5%;transform:rotate(-6deg)}
@@ -283,41 +285,27 @@
   .sc--c{left:53%;top:0.5%;width:21.5%;transform:rotate(2.5deg)}
   .sc--g{left:75.5%;top:5%;width:22%;transform:rotate(6deg)}
   .sc--e{left:2%;top:35%;width:23.5%;transform:rotate(-4deg)}
-  .sc--lead{left:30.5%;top:27%;width:31%;transform:rotate(0deg) scale(1.05);z-index:6;
+  .sc--lead{left:28.5%;top:18%;width:38%;transform:rotate(0deg) scale(1.05);z-index:6;
     box-shadow:0 48px 88px -34px rgba(22,30,66,.62),0 0 0 .5px rgba(22,30,66,.06),0 4px 12px rgba(22,30,66,.14)}
   .sc--f{left:62.5%;top:32%;width:24.5%;transform:rotate(4.5deg)}
   .sc--d{left:5.5%;top:62%;width:22%;transform:rotate(4deg)}
   .sc--h{left:30.5%;top:66.5%;width:23%;transform:rotate(-2.5deg)}
   .sc--i{left:55%;top:62.5%;width:22.5%;transform:rotate(3deg)}
   .sc--j{left:78.5%;top:58%;width:19.5%;transform:rotate(8deg)}
-  @media(hover:hover){
-    .sol-collage__stage:hover .sc{transform:rotate(0deg)}
-    .sol-collage__stage:hover .sc--lead{transform:scale(1.05)}
-  }
-  /* SP：縦に流れる散らしコラージュ（PCの世界観を縦長で再現） */
-  @media(max-width:760px){
-    .sol-collage{overflow:hidden;margin-top:20px}
-    .sol-collage__stage{aspect-ratio:100/214;max-width:none;perspective:none;padding:0 8px}
-    .sc{border-radius:9px;
-      box-shadow:0 18px 34px -18px rgba(22,30,66,.5),0 0 0 .5px rgba(22,30,66,.06),0 1px 4px rgba(22,30,66,.1)}
-    .sc--lead{left:13%;top:0.5%;width:74%;transform:rotate(0deg);z-index:6;
-      box-shadow:0 24px 46px -20px rgba(22,30,66,.58),0 0 0 .5px rgba(22,30,66,.07),0 2px 6px rgba(22,30,66,.12)}
-    .sc--a{left:1%;top:16%;width:53%;transform:rotate(-4deg)}
-    .sc--b{left:45%;top:21.5%;width:54%;transform:rotate(3.5deg)}
-    .sc--c{left:2%;top:32%;width:52%;transform:rotate(3deg)}
-    .sc--e{left:46%;top:37.5%;width:53%;transform:rotate(-3.5deg)}
-    .sc--f{left:1%;top:48%;width:52%;transform:rotate(-2.5deg)}
-    .sc--g{left:45%;top:52.5%;width:54%;transform:rotate(4deg)}
-    .sc--d{left:2%;top:65%;width:54%;transform:rotate(3deg)}
-    .sc--h{left:44%;top:68%;width:55%;transform:rotate(-3deg)}
-    .sc--i{left:2%;top:81%;width:53%;transform:rotate(-2deg)}
-    .sc--j{left:45%;top:84.5%;width:54%;transform:rotate(4.5deg)}
-  }
+  /* スクロールで画面に入ると：少し斜め → まっすぐ整列（PC・スマホ共通） */
+  .sol-collage.in .sc{transform:rotate(0deg)}
+  .sol-collage.in .sc--lead{transform:rotate(0deg) scale(1.05)}
+  /* 整列が外側→内側に伝わる軽いカスケード */
+  .sc--b,.sc--c{transition-delay:.05s}
+  .sc--g,.sc--a{transition-delay:.02s}
+  .sc--e,.sc--f{transition-delay:.12s}
+  .sc--d,.sc--h,.sc--i,.sc--j{transition-delay:.18s}
+  /* スマホはPCのレイアウトをそのまま縮小表示（専用の上書きはしない） */
   @media(max-width:760px){
     .story-problem .storybg::after{background:linear-gradient(180deg,rgba(9,13,30,.9) 0%,rgba(10,15,34,.8) 45%,rgba(12,18,40,.6) 100%)}
     .story-problem .storybg{background-size:cover;background-position:center}
     .story-problem{min-height:0;padding:80px 0}
-    .story-solution{min-height:640px}
+    .story-solution{min-height:0;padding:64px 0 70px}
   }
 
   /* why-notion */
