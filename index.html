@@ -294,15 +294,24 @@
     .sol-collage__stage:hover .sc{transform:rotate(0deg)}
     .sol-collage__stage:hover .sc--lead{transform:scale(1.05)}
   }
-  /* SP：散らし配置を畳んで横スクロール一列に */
+  /* SP：縦に流れる散らしコラージュ（PCの世界観を縦長で再現） */
   @media(max-width:760px){
-    .sol-collage{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
-      scroll-snap-type:x proximity;margin-top:22px;padding-bottom:6px}
-    .sol-collage__stage{display:flex;gap:13px;width:max-content;max-width:none;
-      aspect-ratio:auto;perspective:none;padding:6px 16px 16px}
-    .sc{position:static;flex:0 0 78vw;width:78vw;transform:none!important;
-      scroll-snap-align:center;border-radius:10px}
-    .sc--lead{order:-1;flex-basis:84vw;width:84vw}
+    .sol-collage{overflow:hidden;margin-top:20px}
+    .sol-collage__stage{aspect-ratio:100/214;max-width:none;perspective:none;padding:0 8px}
+    .sc{border-radius:9px;
+      box-shadow:0 18px 34px -18px rgba(22,30,66,.5),0 0 0 .5px rgba(22,30,66,.06),0 1px 4px rgba(22,30,66,.1)}
+    .sc--lead{left:13%;top:0.5%;width:74%;transform:rotate(0deg);z-index:6;
+      box-shadow:0 24px 46px -20px rgba(22,30,66,.58),0 0 0 .5px rgba(22,30,66,.07),0 2px 6px rgba(22,30,66,.12)}
+    .sc--a{left:1%;top:16%;width:53%;transform:rotate(-4deg)}
+    .sc--b{left:45%;top:21.5%;width:54%;transform:rotate(3.5deg)}
+    .sc--c{left:2%;top:32%;width:52%;transform:rotate(3deg)}
+    .sc--e{left:46%;top:37.5%;width:53%;transform:rotate(-3.5deg)}
+    .sc--f{left:1%;top:48%;width:52%;transform:rotate(-2.5deg)}
+    .sc--g{left:45%;top:52.5%;width:54%;transform:rotate(4deg)}
+    .sc--d{left:2%;top:65%;width:54%;transform:rotate(3deg)}
+    .sc--h{left:44%;top:68%;width:55%;transform:rotate(-3deg)}
+    .sc--i{left:2%;top:81%;width:53%;transform:rotate(-2deg)}
+    .sc--j{left:45%;top:84.5%;width:54%;transform:rotate(4.5deg)}
   }
   @media(max-width:760px){
     .story-problem .storybg::after{background:linear-gradient(180deg,rgba(9,13,30,.9) 0%,rgba(10,15,34,.8) 45%,rgba(12,18,40,.6) 100%)}
