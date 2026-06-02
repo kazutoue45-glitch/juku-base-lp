@@ -268,13 +268,42 @@
   .story-problem .p-close{margin-top:24px}
   .story-solution{padding:86px 0 94px;background:var(--beige)}
   .story-solution .story-text{max-width:700px;margin:0 auto;text-align:center}
-  .sol-hero{margin:34px auto 0;max-width:980px;padding:12px;border-radius:24px;
-    background:rgba(255,255,255,.24);backdrop-filter:blur(18px) saturate(155%);-webkit-backdrop-filter:blur(18px) saturate(155%);
-    border:.5px solid rgba(255,255,255,.6);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.22),inset 0 0 0 .5px rgba(255,255,255,.4),0 8px 32px rgba(30,34,66,.16)}
-  .sol-hero img{display:block;width:100%;border-radius:12px;border:.5px solid rgba(255,255,255,.5);
-    box-shadow:0 8px 24px -14px rgba(22,30,66,.32)}
-  @media(max-width:760px){.sol-hero{margin-top:26px}}
+  /* ── solution collage（実画面の散らしコラージュ・full-bleed） ── */
+  .sol-collage{position:relative;width:100%;margin-top:30px;overflow:hidden}
+  .sol-collage__stage{position:relative;width:100%;max-width:1640px;margin:0 auto;
+    aspect-ratio:16/7.7;perspective:1900px;perspective-origin:50% 40%}
+  .sc{position:absolute;border-radius:11px;overflow:hidden;background:#fff;
+    border:.5px solid rgba(22,30,66,.10);
+    box-shadow:0 34px 64px -30px rgba(22,30,66,.55),0 0 0 .5px rgba(22,30,66,.05),0 2px 6px rgba(22,30,66,.10);
+    transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease}
+  .sc img{width:100%;height:auto;display:block}
+  /* 各カードの配置（left / top / width / rotate） */
+  .sc--a{left:1.5%;top:5%;width:21.5%;transform:rotate(-6deg)}
+  .sc--b{left:24%;top:0.5%;width:21.5%;transform:rotate(-2deg)}
+  .sc--c{left:53%;top:0.5%;width:21.5%;transform:rotate(2.5deg)}
+  .sc--g{left:75.5%;top:5%;width:22%;transform:rotate(6deg)}
+  .sc--e{left:2%;top:35%;width:23.5%;transform:rotate(-4deg)}
+  .sc--lead{left:30.5%;top:27%;width:31%;transform:rotate(0deg) scale(1.05);z-index:6;
+    box-shadow:0 48px 88px -34px rgba(22,30,66,.62),0 0 0 .5px rgba(22,30,66,.06),0 4px 12px rgba(22,30,66,.14)}
+  .sc--f{left:62.5%;top:32%;width:24.5%;transform:rotate(4.5deg)}
+  .sc--d{left:5.5%;top:62%;width:22%;transform:rotate(4deg)}
+  .sc--h{left:30.5%;top:66.5%;width:23%;transform:rotate(-2.5deg)}
+  .sc--i{left:55%;top:62.5%;width:22.5%;transform:rotate(3deg)}
+  .sc--j{left:78.5%;top:58%;width:19.5%;transform:rotate(8deg)}
+  @media(hover:hover){
+    .sol-collage__stage:hover .sc{transform:rotate(0deg)}
+    .sol-collage__stage:hover .sc--lead{transform:scale(1.05)}
+  }
+  /* SP：散らし配置を畳んで横スクロール一列に */
+  @media(max-width:760px){
+    .sol-collage{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+      scroll-snap-type:x proximity;margin-top:22px;padding-bottom:6px}
+    .sol-collage__stage{display:flex;gap:13px;width:max-content;max-width:none;
+      aspect-ratio:auto;perspective:none;padding:6px 16px 16px}
+    .sc{position:static;flex:0 0 78vw;width:78vw;transform:none!important;
+      scroll-snap-align:center;border-radius:10px}
+    .sc--lead{order:-1;flex-basis:84vw;width:84vw}
+  }
   @media(max-width:760px){
     .story-problem .storybg::after{background:linear-gradient(180deg,rgba(9,13,30,.9) 0%,rgba(10,15,34,.8) 45%,rgba(12,18,40,.6) 100%)}
     .story-problem .storybg{background-size:cover;background-position:center}
@@ -508,7 +537,21 @@
       <h2 class="sec-h">バラバラだった情報が、1つのNotionに集約。</h2>
       <p class="sec-lead">全校舎の生徒・売上・退塾・コマ稼働が1か所に集まる。本部は報告を待たず、今この瞬間の数字を自分で見て判断できる。教室長任せの経営から、本部が見える経営へ。</p>
     </div>
-    <figure class="sol-hero reveal"><img src="assets/after-grid.png" alt="全校舎の生徒・講師・時間割・成績・請求が1つのNotionに集約された実画面"></figure>
+  </div>
+  <div class="sol-collage reveal" role="img" aria-label="全校舎の生徒・講師・時間割・成績・請求が1つのNotionに集約された実画面">
+    <div class="sol-collage__stage">
+      <figure class="sc sc--a"><img src="assets/screenshots/notion/02-db-students.png" alt="生徒情報データベース" loading="lazy"></figure>
+      <figure class="sc sc--b"><img src="assets/screenshots/notion/04-db-schedule.png" alt="時間割作成データベース" loading="lazy"></figure>
+      <figure class="sc sc--c"><img src="assets/screenshots/notion/06-db-test-scores.png" alt="学校テスト成績記入" loading="lazy"></figure>
+      <figure class="sc sc--d"><img src="assets/screenshots/app/01-schedule.png" alt="時間割作成表アプリ" loading="lazy"></figure>
+      <figure class="sc sc--e"><img src="assets/screenshots/notion/03-db-instructors.png" alt="講師情報データベース" loading="lazy"></figure>
+      <figure class="sc sc--lead"><img src="assets/screenshots/notion/01-crm-home.png" alt="学習塾専用CRMテンプレートHOME｜新規問い合わせ・校舎情報を一元管理" loading="lazy"></figure>
+      <figure class="sc sc--f"><img src="assets/screenshots/notion/07-db-invoice.png" alt="請求明細データベース" loading="lazy"></figure>
+      <figure class="sc sc--g"><img src="assets/screenshots/notion/05-db-schedule-master.png" alt="時間割マスタデータベース" loading="lazy"></figure>
+      <figure class="sc sc--h"><img src="assets/screenshots/app/04-student-scores.png" alt="生徒テスト成績の推移" loading="lazy"></figure>
+      <figure class="sc sc--i"><img src="assets/screenshots/app/05-student-invoice.png" alt="生徒情報 請求書" loading="lazy"></figure>
+      <figure class="sc sc--j"><img src="assets/screenshots/app/02-templates.png" alt="時間割テンプレート" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
